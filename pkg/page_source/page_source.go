@@ -5,17 +5,19 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"strings"
 )
 
-func GetPageSource(url string, method string, body io.Reader) (string, error) {
-	request, err := http.NewRequest(strings.ToUpper(method), url, body)
-	if err != nil {
-		log.Fatal(err)
-		return "-1", err
-	}
+type Request struct {
+	R *http.Request
+}
+
+func (r *Request) AddParams(key string, v string) {
+	r.R.Header.Add(key, v)
+}
+
+func GetPageSource(body io.Reader, r Request) (string, error) {
 	client := http.DefaultClient
-	response, err := client.Do(request)
+	response, err := client.Do(r.R)
 	if err != nil {
 		log.Fatal(err)
 		return "-1", err

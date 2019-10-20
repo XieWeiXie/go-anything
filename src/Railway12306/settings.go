@@ -21,3 +21,16 @@ func init() {
 	TickType[3] = "student"    // 学生票
 	TickType[4] = "disability" // 伤残军人票
 }
+
+// 参考：https://github.com/sunhailin-Leo/12306-Go
+const (
+	HXHBed       int = 33 // 动卧
+	SeatBusiness int = 32 // 商务座
+	SeatFirst    int = 31 // 一等座
+	SeatSecond   int = 30 // 二等座
+	HardSeat     int = 29 // 硬座
+	HardBed      int = 28 // 硬卧
+	NoSeat       int = 26 // 无座
+	SeatSpecial  int = 25 // 特等座
+	SoftSeat     int = 23 // 软座
+)
