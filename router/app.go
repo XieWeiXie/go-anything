@@ -3,6 +3,8 @@ package router
 import (
 	"fmt"
 
+	"github.com/wuxiaoxiaoshen/go-anything/src/weixin"
+
 	"github.com/wuxiaoxiaoshen/go-anything/src/Railway12306"
 
 	"github.com/kataras/iris"
@@ -19,6 +21,7 @@ func newApp() *iris.Application {
 }
 func register(app *iris.Application) {
 	app.PartyFunc("/v1/api/12306", Railway12306.RegisterRailWay12306)
+	app.PartyFunc("/v1/api/weixin", weixin.RegisterWeiXin)
 
 }
 func Run(port string) {
