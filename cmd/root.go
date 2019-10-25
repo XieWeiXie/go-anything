@@ -22,4 +22,5 @@ var ROOT = &cobra.Command{
 
 func init() {
 	ROOT.AddCommand(STATION)
+	ROOT.AddCommand(WX)
 }
