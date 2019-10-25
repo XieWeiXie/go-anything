@@ -2,7 +2,10 @@ package cmd
 
 import (
 	"context"
+	"fmt"
+	"io/ioutil"
 	"log"
+	"net/http"
 
 	"github.com/chromedp/chromedp"
 	"github.com/spf13/cobra"
@@ -15,19 +18,21 @@ var WX = &cobra.Command{
 
 	},
 	Run: func(cmd *cobra.Command, args []string) {
-		ChromeNav()
+		ctx, cancel := chromedp.NewContext(
+			context.Background(),
+			chromedp.WithLogf(log.Printf),
+		)
+		defer cancel()
+		//ChromeNav(ctx)
+		//Response("https://weixin.sogou.com/")
+		ChromeResponse(ctx)
 	},
 	PostRun: func(cmd *cobra.Command, args []string) {
 
 	},
 }
 
-func ChromeNav() {
-	ctx, cancel := chromedp.NewContext(
-		context.Background(),
-		chromedp.WithLogf(log.Printf),
-	)
-	defer cancel()
+func ChromeNav(ctx context.Context) {
 	var title string
 	var location string
 	e := chromedp.Run(ctx,
@@ -41,4 +46,35 @@ func ChromeNav() {
 	}
 	log.Println("Title: ", title)
 	log.Println("Location: ", location)
+}
+
+func ChromeResponse(ctx context.Context) {
+	var response string
+	var text string
+	e := chromedp.Run(ctx,
+		chromedp.Navigate("https://weixin.sogou.com/"),
+		chromedp.OuterHTML("body", &response),
+		chromedp.Text(".fieed-box", &text),
+	)
+	if e != nil {
+		log.Println(e)
+		return
+	}
+	if response == "" {
+		log.Println("Response: ", nil)
+		return
+	}
+	log.Println("Response: ", &response)
+	log.Println("Text: ", text)
+}
+
+func Response(url string) string {
+	response, e := http.Get(url)
+	if e != nil {
+		log.Println(e)
+		return ""
+	}
+	content, _ := ioutil.ReadAll(response.Body)
+	fmt.Println(string(content))
+	return ""
 }

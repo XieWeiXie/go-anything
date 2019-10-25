@@ -18,7 +18,7 @@ func newApp() *iris.Application {
 	return app
 }
 func register(app *iris.Application) {
-	app.PartyFunc("/12306", Railway12306.RegisterRailWay12306)
+	app.PartyFunc("/v1/api/12306", Railway12306.RegisterRailWay12306)
 
 }
 func Run(port string) {

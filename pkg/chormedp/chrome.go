@@ -19,6 +19,7 @@ func GetContextWithLog() context.Context {
 	return ctx
 }
 
+// 只通过 Chromedp 获取到网页源代码
 func GetPageSource(ctx context.Context, url string) string {
 	var response string
 	err := chromedp.Run(ctx, chromedp.Tasks{
