@@ -2,11 +2,12 @@ package cmd
 
 import (
 	"fmt"
-	"go-anything/src/Railway12306"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
+
+	"github.com/wuxiaoxiaoshen/go-anything/src/Railway12306"
 
 	"github.com/spf13/cobra"
 )

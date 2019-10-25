@@ -2,10 +2,11 @@ package Railway12306
 
 import (
 	"fmt"
-	"go-anything/pkg/error_http"
-	"go-anything/pkg/page_source"
 	"net/http"
 	"strings"
+
+	"github.com/wuxiaoxiaoshen/go-anything/pkg/error_http"
+	"github.com/wuxiaoxiaoshen/go-anything/pkg/page_source"
 
 	"github.com/tidwall/gjson"
 

@@ -2,7 +2,8 @@ package router
 
 import (
 	"fmt"
-	"go-anything/src/Railway12306"
+
+	"github.com/wuxiaoxiaoshen/go-anything/src/Railway12306"
 
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"

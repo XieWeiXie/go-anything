@@ -1,9 +1,10 @@
 package main
 
 import (
-	"go-anything/cmd"
 	"log"
 	"os"
+
+	"github.com/wuxiaoxiaoshen/go-anything/cmd"
 )
 
 func Execute() error {

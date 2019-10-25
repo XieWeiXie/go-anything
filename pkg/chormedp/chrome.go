@@ -3,7 +3,7 @@ package chormedp_helper
 import (
 	"log"
 
-	"github.com/knq/chromedp"
+	"github.com/chromedp/chromedp"
 	"golang.org/x/net/context"
 )
 

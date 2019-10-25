@@ -4,12 +4,12 @@ import (
 	"context"
 	"log"
 
-	"github.com/knq/chromedp"
+	"github.com/chromedp/chromedp"
 	"github.com/spf13/cobra"
 )
 
 var WX = &cobra.Command{
-	Use:   "wexin",
+	Use:   "weixin",
 	Short: "get wexin command from https://weixin.sogou.com/",
 	PreRun: func(cmd *cobra.Command, args []string) {
 

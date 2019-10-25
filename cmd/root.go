@@ -1,8 +1,9 @@
 package cmd
 
 import (
-	"go-anything/router"
 	"log"
+
+	"github.com/wuxiaoxiaoshen/go-anything/router"
 
 	"github.com/spf13/cobra"
 )
