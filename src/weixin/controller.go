@@ -33,7 +33,7 @@ func (t *TagsAction) Do() {
 	//fmt.Println(source)
 	doc, _ := goquery.NewDocumentFromReader(strings.NewReader(source))
 	tags := doc.Find("#type_tab")
-	tags.Find(`div[@class="fieed-box"] a`).Each(func(i int, selection *goquery.Selection) {
+	tags.Find(`div.fieed-box a`).Each(func(i int, selection *goquery.Selection) {
 		t.Results = append(t.Results, eachTagsResponse(selection))
 	})
 	tags.Find(`#hide_tab a`).Each(func(i int, selection *goquery.Selection) {
@@ -69,7 +69,7 @@ func (b *BannerAction) Do() {
 		log.Println(fmt.Sprintf("Banner error : %s", e.Error()))
 		return
 	}
-	doc.Find(`div[@class="sd-slider"] a[@class="sd-slider-item"]`).Each(func(i int, selection *goquery.Selection) {
+	doc.Find(`div.sd-slider a.sd-slider-item`).Each(func(i int, selection *goquery.Selection) {
 		var eachBanner Banner
 		eachBanner.Topic = strings.TrimSpace(selection.Text())
 		eachBanner.Url, _ = selection.Attr("href")
@@ -143,11 +143,12 @@ func (P *PassageAction) Do() {
 		log.Println(fmt.Sprintf("Passage: %s", e.Error()))
 		return
 	}
-	doc.Find(`ul[@class="news-list"] li div[@class="txt-box"]`).Each(func(i int, selection *goquery.Selection) {
+	doc.Find(`.news-list li div.txt-box`).Each(func(i int, selection *goquery.Selection) {
 		var eachPassage Passage
 		eachPassage.Topic = strings.TrimSpace(selection.Find("h3").Text())
 		eachPassage.Url = selection.Find("h3 a").AttrOr("href", "No Url")
-		eachPassage.SubContent = selection.Find(`p[@class="txt-info"]`).Text()
+		eachPassage.SubContent = selection.Find(`p.txt-info`).Text()
+		eachPassage.Author = selection.Find("div.s-p a.account").Text()
 		date, _ := selection.Find("div").Attr("t")
 		eachPassage.Date = dateFormat(date)
 		P.Results = append(P.Results, eachPassage)
@@ -179,12 +180,13 @@ func (E *EditorAction) Do() {
 		log.Println(fmt.Sprintf("Editor: %s", e.Error()))
 		return
 	}
-	doc.Find(`.news-list-right li div[@class="txt-box"]`).Each(func(i int, selection *goquery.Selection) {
+	doc.Find(`.news-list-right li`).Each(func(i int, selection *goquery.Selection) {
+		selection = selection.Find("div.txt-box")
 		var eachEditor MediumEditor
-		eachEditor.Url = selection.Find(`p[@class="p1"] a`).AttrOr("href", "No Url")
-		eachEditor.Topic = selection.Find(`p[@class="p1"] a`).Text()
-		eachEditor.Date = selection.Find(`p[@class="p2"] span`).Text()
-		eachEditor.MediumName = selection.Find(`p[@class="p2"] a`).Text()
+		eachEditor.Url = selection.Find(`p.p1 a`).AttrOr("href", "No Url")
+		eachEditor.Topic = selection.Find(`p.p1 a`).Text()
+		eachEditor.Date = selection.Find(`p.p2 span`).Text()
+		eachEditor.MediumName = selection.Find(`p.p2 a`).Text()
 		E.Results = append(E.Results, eachEditor)
 	})
 }
