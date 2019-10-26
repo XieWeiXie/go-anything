@@ -1,6 +1,7 @@
 package chormedp_helper
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/chromedp/chromedp"
@@ -8,14 +9,12 @@ import (
 )
 
 func GetContextWithBackground() context.Context {
-	ctx, cancel := chromedp.NewContext(context.Background())
-	defer cancel()
+	ctx, _ := chromedp.NewContext(context.Background())
 	return ctx
 }
 
 func GetContextWithLog() context.Context {
-	ctx, cancel := chromedp.NewContext(context.Background(), chromedp.WithLogf(log.Printf))
-	defer cancel()
+	ctx, _ := chromedp.NewContext(context.Background(), chromedp.WithLogf(log.Printf))
 	return ctx
 }
 
@@ -27,7 +26,7 @@ func GetPageSource(ctx context.Context, url string) string {
 		chromedp.OuterHTML("body", &response),
 	})
 	if err != nil {
-		log.Println(err)
+		log.Println(fmt.Sprintf("GetPageSource: %s", err.Error()))
 		return ""
 	}
 	return response

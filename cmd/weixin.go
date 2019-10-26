@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/wuxiaoxiaoshen/go-anything/src/weixin"
+
 	"github.com/chromedp/chromedp"
 	"github.com/spf13/cobra"
 )
@@ -18,14 +20,17 @@ var WX = &cobra.Command{
 
 	},
 	Run: func(cmd *cobra.Command, args []string) {
-		ctx, cancel := chromedp.NewContext(
-			context.Background(),
-			chromedp.WithLogf(log.Printf),
-		)
-		defer cancel()
+		//ctx, cancel := chromedp.NewContext(
+		//	context.Background(),
+		//	chromedp.WithLogf(log.Printf),
+		//)
+		//defer cancel()
 		//ChromeNav(ctx)
 		//Response("https://weixin.sogou.com/")
-		ChromeResponse(ctx)
+		//ChromeResponse(ctx)
+		var t weixin.TagsAction
+		t.Url = "https://weixin.sogou.com/"
+		t.Do()
 	},
 	PostRun: func(cmd *cobra.Command, args []string) {
 
