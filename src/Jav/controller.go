@@ -51,7 +51,7 @@ func (C *CodeDetailAction) String() string {
 
 func codeDetailHandler(c iris.Context) {
 	var r CodeDetailAction
-	r.Code = c.URLParam("code")
+	r.Code = strings.ToUpper(c.Params().Get("code"))
 	r.Do()
 	c.JSON(iris.Map{
 		"data": r.Result,
