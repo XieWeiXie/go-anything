@@ -61,10 +61,13 @@ var (
 	/v1/location/nearby
 - comment
 	/v1/comment/create
+- annotation
+	/v1/annotation/search
 
 - app 版本:https://ota.weibo.cn
 	/api/app/version/upgrade
 - 图片上传: https://picupload.weibo.com // https://picupload.service.weibo.com
 	/interface/upload.php
-
+https://picupload.weibo.com/interface/upload.php?appid=3157701306&cs=3430395255&ent=xiancheng&file_source=53&gsid=_2A9Y6hnV0DIVOw5wYhtwUazlgUavKDdCBNrCioHznUhyKVZN6hIl6sD-ykK3SLmiw9wUZaarhL63iWsw84mgxWgid&ori=1&uid=1948244870
+curl -H 'Host: oasis.weibo.cn' -H 'gsid: rWf/skaVKcSmS1v+WmGQmFFI5rCwUfhG7kx9FomaSbnUzxZZw6ViLbReM6RRMZRY5d8XhiG7PlDBK+wW6ApbU2dxl1gxx9OX41NSAbEqKIONpCIgJM9FBYKAypZZjwxQ' -H 'authorization: Bearer' -H 'x-log-uid: 1948244870' -H 'x-sessionid: 1756e10c-1a3d-419f-bf89-ed55daee013a' -H 'aid: 01A0QclqWHjYDiPccIVGsKkq8VuZpCUIaUQOAW6PCht1I4BUo.' -H 'user-agent: smartisan-OD103__oasis__1.4.17__Android__Android7.1.1' -H 'content-type: text/plain; charset=utf-8' --data-binary '{"text":"图图","medias":[{"pid":"741fdb86gy3g8exyys66wj20u00u0tpf","width":1080,"height":1080}]}' --compressed 'https://oasis.weibo.cn/v1/status/create?ua=smartisan-OD103__oasis__1.4.17__Android__Android7.1.1&wm=9009_90025&aid=01A0QclqWHjYDiPccIVGsKkq8VuZpCUIaUQOAW6PCht1I4BUo.&cuid=1948244870&sign=f772f7c942753c3e7e5f1d75878ac042&type=1&timestamp=1572322112022&cfrom=2899595010&poiid=8008631000000000000&title=%E5%9B%BE%E5%9B%BE&weibo=true&version=1.4.17&noncestr=8977xV620e15Bka96584gk89UZ2841&platform=ANDROID'
 */
