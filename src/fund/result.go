@@ -22,9 +22,9 @@ type (
 	Stock struct {
 		Code  string `json:"code"`
 		Name  string `json:"name"`
-		Rate  string `json:"rate"`  // 占比
-		Ratio string `json:"ratio"` // 本身的涨幅
-		Price string `json:"price"` // 当前价位
+		Rate  string `json:"rate"`       // 占比
+		Ratio string `json:"self_ratio"` // 本身的涨幅
+		Price string `json:"self_price"` // 当前价位
 	}
 	Manager struct {
 		Id       string       `json:"id"`
@@ -47,4 +47,14 @@ type (
 	OneProfitSeries struct {
 		Value float64 `json:"value"`
 	}
+)
+
+type (
+	GlobalFundMarket struct {
+		Code    string `json:"code"`
+		Name    string `json:"name"`
+		Current string `json:"current"`
+		Rate    string `json:"rate"`
+	}
+	GlobalFundMarkets []GlobalFundMarket
 )

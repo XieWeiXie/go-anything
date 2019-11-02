@@ -1,6 +1,7 @@
 package fund
 
 import (
+	"encoding/json"
 	"fmt"
 	"regexp"
 	"strconv"
@@ -125,10 +126,14 @@ func (O *OneFundAction) sourcePage() {
 	O.Result = result
 }
 func (O *OneFundAction) Do() {
-
 	O.sourcePage()
 	O.resultPartJS()
 
+}
+
+func (O *OneFundAction) String() string {
+	b, _ := json.MarshalIndent(O.Result, " ", " ")
+	return string(b)
 }
 func getFundInfoHandler(c iris.Context) {
 	code := c.Params().GetString("code")
@@ -136,5 +141,43 @@ func getFundInfoHandler(c iris.Context) {
 	fund.Do()
 	c.JSON(iris.Map{
 		"data": fund.Result,
+	})
+}
+
+type GlobalAction struct {
+	Result GlobalFundMarkets `json:"result"`
+}
+
+func NewGlobalAction() *GlobalAction {
+	return &GlobalAction{}
+}
+
+func (G *GlobalAction) sourcePage() {
+	source := chromedp_helper.GetPageSourceHTTP(GLOBAL)
+	for i := 0; i < 21; i++ {
+		data := gjson.Parse(source).Get(fmt.Sprintf("data.diff.%d", i))
+		var tempData GlobalFundMarket
+		tempData.Code = data.Get("f12").String()
+		tempData.Name = data.Get("f14").String()
+		tempData.Rate = strconv.FormatFloat(data.Get("f3").Float()/100, 'f', 2, 32) + "%"
+		tempData.Current = strconv.FormatFloat(data.Get("f2").Float()/100, 'f', 2, 32)
+		G.Result = append(G.Result, tempData)
+	}
+}
+
+func (G *GlobalAction) Do() {
+	G.sourcePage()
+}
+
+func (G *GlobalAction) String() string {
+	b, _ := json.MarshalIndent(G.Result, " ", " ")
+	return string(b)
+}
+
+func getGlobalInfoHandler(c iris.Context) {
+	g := NewGlobalAction()
+	g.Do()
+	c.JSON(iris.Map{
+		"data": g.Result,
 	})
 }
