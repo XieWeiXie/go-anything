@@ -4,7 +4,7 @@
         <img src="https://img.shields.io/badge/Author-wuxiaoxiaoshen-green" alt="Author">
     </a>
     <a href="https://github.com/wuxiaoxiaoshen">
-        <img src="https://img.shields.io/badge/progressing-1%25-green" alt="Author">
+        <img src="https://img.shields.io/badge/progressing-2%25-green" alt="Author">
     </a>
 </p>
 
@@ -15,6 +15,7 @@
 2. 番号查询
 3. 火车票查询
 4. Bing 每日壁纸
+5. 天天基金
 
 ## 平台
 

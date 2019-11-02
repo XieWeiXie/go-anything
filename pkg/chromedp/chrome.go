@@ -2,7 +2,9 @@ package chromedp_helper
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
+	"net/http"
 
 	"github.com/chromedp/chromedp"
 	"golang.org/x/net/context"
@@ -30,4 +32,27 @@ func GetPageSource(ctx context.Context, url string) string {
 		return ""
 	}
 	return response
+}
+
+func GetPageSourceHTTP(url string) string {
+	client := http.DefaultClient
+	request, e := http.NewRequest(http.MethodGet, url, nil)
+	request.Header.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36")
+	if e != nil {
+		log.Println(e)
+		return ""
+	}
+	response, e := client.Do(request)
+	if e != nil {
+		log.Println(e)
+		return ""
+	}
+	defer response.Body.Close()
+	content, e := ioutil.ReadAll(response.Body)
+	if e != nil {
+		log.Println(e)
+		return ""
+	}
+	return string(content)
+
 }
