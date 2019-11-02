@@ -1,4 +1,4 @@
-package chormedp_helper
+package chromedp_helper
 
 import (
 	"fmt"

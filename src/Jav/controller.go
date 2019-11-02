@@ -6,8 +6,9 @@ import (
 	"log"
 	"strings"
 
+	chromedp_helper "github.com/wuxiaoxiaoshen/go-anything/pkg/chromedp"
+
 	"github.com/PuerkitoBio/goquery"
-	"github.com/wuxiaoxiaoshen/go-anything/pkg/chormedp"
 
 	"github.com/kataras/iris"
 )
@@ -22,7 +23,7 @@ func (C *CodeDetailAction) format() string {
 }
 
 func (C *CodeDetailAction) Do() {
-	source := chormedp_helper.GetPageSource(chormedp_helper.GetContextWithLog(), C.format())
+	source := chromedp_helper.GetPageSource(chromedp_helper.GetContextWithLog(), C.format())
 	doc, e := goquery.NewDocumentFromReader(strings.NewReader(source))
 	if e != nil {
 		log.Println(fmt.Sprintf("CodeDetail: %s", e.Error()))

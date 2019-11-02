@@ -1,7 +1,9 @@
 package weixin
 
-import "github.com/wuxiaoxiaoshen/go-anything/pkg/chormedp"
+import (
+	"github.com/wuxiaoxiaoshen/go-anything/pkg/chromedp"
+)
 
 func pageSource(url string) string {
-	return chormedp_helper.GetPageSource(chormedp_helper.GetContextWithLog(), url)
+	return chromedp_helper.GetPageSource(chromedp_helper.GetContextWithLog(), url)
 }

@@ -3,6 +3,8 @@ package router
 import (
 	"fmt"
 
+	"github.com/wuxiaoxiaoshen/go-anything/src/fund"
+
 	"github.com/wuxiaoxiaoshen/go-anything/src/Bing"
 
 	"github.com/wuxiaoxiaoshen/go-anything/src/Jav"
@@ -28,6 +30,7 @@ func register(app *iris.Application) {
 	app.PartyFunc("/v1/api/weixin", weixin.RegisterWeiXin)
 	app.PartyFunc("/v1/api/jav", Jav.RegisterJav)
 	app.PartyFunc("/v1/api/bing", Bing.RegisterBing)
+	app.PartyFunc("/v1/api/tt", fund.RegisterFund)
 
 }
 func Run(port string) {

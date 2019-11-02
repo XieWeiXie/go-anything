@@ -25,4 +25,5 @@ func init() {
 	ROOT.AddCommand(STATION)
 	ROOT.AddCommand(WX)
 	ROOT.AddCommand(JAV)
+	ROOT.AddCommand(FundCmd)
 }
