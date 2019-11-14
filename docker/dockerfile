@@ -1,0 +1,10 @@
+FROM golang:1.13.4-alpine3.10
+MAINTAINER XieWei(1156143589@qq.com)
+EXPOSE 8888 8081
+WORKDIR /go-anything
+VOLUME /go-anything
+COPY . .
+RUN go mod vendor;\
+    go build -o main main.go;\
+    echo Succeed!
+CMD ./main
