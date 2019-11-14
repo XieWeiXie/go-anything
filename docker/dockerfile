@@ -1,6 +1,9 @@
-FROM golang:1.13.4-alpine3.10
+FROM golang:1.13.4
+
 MAINTAINER XieWei(1156143589@qq.com)
+
 EXPOSE 8888 8081
+
 WORKDIR /go/src/go-anything
 VOLUME go/src/go-anything
 
@@ -12,6 +15,6 @@ COPY . .
 
 RUN apt-get update && apt-get install -q -y vim nginx postgresql-client git openssh-client cron && apt-get clean;\
     go mod vendor;\
-    go build -o main main.go;\
+    go build -o go-anything main.go;\
     echo Succeed!
-CMD /go/src/main
+CMD ["bin/bash", "-c", "/go/src/go-anything/go-anything"]
