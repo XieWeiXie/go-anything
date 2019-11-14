@@ -17,4 +17,4 @@ RUN apt-get update && apt-get install -q -y vim nginx postgresql-client git open
     go mod vendor;\
     go build -o go-anything main.go;\
     echo Succeed!
-CMD ["bin/bash", "-c", "/go/src/go-anything/go-anything"]
+CMD ["bash", "-c", "go /go/src/go-anything/main.go"]
