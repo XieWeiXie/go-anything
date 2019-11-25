@@ -5,11 +5,14 @@ go 1.13
 require (
 	github.com/CloudyKit/fastprinter v0.0.0-20170127035650-74b38d55f37a // indirect
 	github.com/PuerkitoBio/goquery v1.5.0
+	github.com/Shopify/sarama v1.24.1
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/chromedp/chromedp v0.5.1
 	github.com/fasthttp-contrib/websocket v0.0.0-20160511215533-1f3b11f56072 // indirect
+	github.com/gomodule/redigo v1.7.1-0.20190724094224-574c33c3df38
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/imkira/go-interpol v1.1.0 // indirect
+	github.com/jinzhu/gorm v1.9.11
 	github.com/k0kubun/colorstring v0.0.0-20150214042306-9440f1994b88 // indirect
 	github.com/kataras/iris v11.2.8+incompatible
 	github.com/klauspost/compress v1.9.0 // indirect
@@ -23,6 +26,7 @@ require (
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/spf13/cobra v0.0.5
+	github.com/spf13/viper v1.3.2
 	github.com/tidwall/gjson v1.3.2
 	github.com/valyala/fasthttp v1.6.0 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect

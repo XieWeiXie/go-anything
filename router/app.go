@@ -3,6 +3,8 @@ package router
 import (
 	"fmt"
 
+	"github.com/wuxiaoxiaoshen/go-anything/src/Healthz"
+
 	"github.com/wuxiaoxiaoshen/go-anything/src/fund"
 
 	"github.com/wuxiaoxiaoshen/go-anything/src/Bing"
@@ -26,6 +28,7 @@ func newApp() *iris.Application {
 	return app
 }
 func register(app *iris.Application) {
+	app.PartyFunc("/v1/api/status", Healthz.RegisterHealth)
 	app.PartyFunc("/v1/api/12306", Railway12306.RegisterRailWay12306)
 	app.PartyFunc("/v1/api/weixin", weixin.RegisterWeiXin)
 	app.PartyFunc("/v1/api/jav", Jav.RegisterJav)

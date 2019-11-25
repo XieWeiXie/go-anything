@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka_for_go_anything
+    ports:
+      - 9092:9092
+      - 9094:9094
+    expose:
+      - 9092
+      - 9094
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLIATION_FACTOR: 1
+      KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    networks:
+      - go-anything-network
+    volumes:
+      - data:/kafka/kafka-logs-kafka
+    depends_on:
+      - zookeeper
+  zookeeper:
+    image: zookeeper
+    container_name: zookeeper_for_go_anything
+    restart: always
+    ports:
+      - 2181:2181
+    expose:
+      - 2181
+    environment:
+      ZOO_MY_ID: 1
+    networks:
+      - go-anything-network
+    volumes:
+      - data:/data
+networks:
+  go-anything-network:
+    driver: bridge
+volumes:
+  data: {}
+  dir: {}

@@ -1,0 +1,45 @@
+version: "v1"
+author: "XieWei"
+weChat: "wu_xiaoshen"
+service:
+  mysql:
+    port: "3306"
+    db: go-anything
+    user: root
+    passwd: adminMysql
+    host: 127.0.0.1
+  redis:
+    port: "6379"
+    auth: adminRedis
+    host: 127.0.0.1
+  kafka:
+    broker: 127.0.0.1:9092
+    topic: go-anything
+    consumerGroup: go-anything-consumer-group
+  email:
+    sender: "xiewei@tkzc31.onexmail.com"
+    auth: "TWVuZzE5OTMwNzE5Cg=="
+    receivers:
+      - "1156143589@qq.com"
+      - "1344439822@qq.com"
+dev:
+  mysql:
+    port: "3306"
+    db: go-anything
+    user: root
+    passwd: adminMysql
+    host: "127.0.0.1"
+  redis:
+    port: "6379"
+    auth: adminRedis
+    host: "127.0.0.1"
+  kafka:
+    broker: 127.0.0.1:9092
+    topic: go-anything
+    consumerGroup: go-anything-consumer-group
+  email:
+    sender: "xiewei@tkzc31.onexmail.com"
+    auth: "TWVuZzE5OTMwNzE5Cg=="
+    receivers:
+      - "1156143589@qq.com"
+      - "1344439822@qq.com"

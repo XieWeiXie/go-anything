@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    expose:
+      - 6379
+      - 6378
+    container_name: redis_for_go_anything
+    command: redis-server --appendonly yes --requirepass "adminRedis"
+    networks:
+      - go-anything-network
+    volumes:
+      - data:/data
+      - dir:/usr/local/etc/redis/redis.conf
+networks:
+  go-anything-network:
+    driver: bridge
+volumes:
+  data: {}
+  dir: {}
