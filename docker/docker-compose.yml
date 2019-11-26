@@ -12,6 +12,8 @@ services:
   mysql:
     image: mysql:latest
     container_name: mysql_for_go_anything
+    networks:
+      - go-anything-network
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: adminMysql
@@ -19,12 +21,6 @@ services:
       MYSQL_USER: root
     ports:
       - 3307:3306
-      - 33060:33060
-    expose:
-      - 3307
-      - 33060
-    external_links:
-      - 127.0.0.1:3307
   kafka:
     image: index.docker.io/wurstmeister/kafka:latest
     container_name: kafka_for_go_anything
@@ -42,15 +38,6 @@ services:
     container_name: zookeeper_for_go_anything
     ports:
       - 2181:2181
-  go-anything:
-    container_name: go-anything-project
-    image: wuxiaoshen/go-anything:v0.9
-    ports:
-      - 8081:8888
-    links:
-      - mysql
-      - redis
-      - kafka
-    depends_on:
-      - zookeeper
-    command: ["bash","-c", "go run /go/src/github.com/wuxiaoxiaoshen/go-anything/main.go"]
+networks:
+  go-anything-network:
+    driver: bridge

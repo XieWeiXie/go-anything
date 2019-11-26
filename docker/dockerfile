@@ -4,8 +4,6 @@ MAINTAINER XieWei(1156143589@qq.com)
 
 EXPOSE 8888 8081
 
-
-
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 RUN dpkg-reconfigure -f noninteractive tzdata
@@ -21,3 +19,4 @@ RUN apt-get update && apt-get install -q -y vim nginx postgresql-client git open
     make build;\
     echo Succeed!
 CMD ["bash", "-c", "echo Hello World"]
+CMD ["bash","-c", "go run /go/src/github.com/wuxiaoxiaoshen/go-anything/main.go"]
