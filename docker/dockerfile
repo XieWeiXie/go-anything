@@ -17,4 +17,4 @@ RUN apt-get update && apt-get install -q -y vim nginx postgresql-client git open
     make remove;\
     make build;\
     echo Succeed!
-CMD ["bash", "-c", "go run /go/src/go-anything/main.go"]
+CMD ["bash", "-c", "echo Hello World"]
