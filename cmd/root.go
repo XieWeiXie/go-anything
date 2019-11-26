@@ -3,6 +3,10 @@ package cmd
 import (
 	"log"
 
+	kafka_operator "github.com/wuxiaoxiaoshen/go-anything/pkg/kafka"
+
+	redis_operator "github.com/wuxiaoxiaoshen/go-anything/pkg/redis"
+
 	"github.com/wuxiaoxiaoshen/go-anything/pkg/mysql"
 
 	"github.com/wuxiaoxiaoshen/go-anything/router"
@@ -18,10 +22,10 @@ var ROOT = &cobra.Command{
 		mysql_operator.MySQLInit()
 
 		log.Println("Step 2: Redis...")
-		//redis_operator.RedisInit()
-
+		redis_operator.RedisInit()
+		//
 		log.Println("Step 3: Kafka...")
-		//kafka_operator.KafkaInit()
+		kafka_operator.KafkaInit()
 
 	},
 	Run: func(cmd *cobra.Command, args []string) {

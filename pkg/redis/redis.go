@@ -29,6 +29,10 @@ type (
 )
 
 func init() {
+
+}
+
+func RedisInit() {
 	r := configs.DefaultConfigs.LoadConfigs("redis")
 	a := r.(map[string]interface{})
 	log.Println(fmt.Sprintf("Keys: Redis: %#v", r))
@@ -39,9 +43,6 @@ func init() {
 	}
 	addr = fmt.Sprintf("%s:%s", setting.host, setting.port)
 	auth = setting.auth
-}
-
-func RedisInit() {
 	DefaultRedisAction = newPoolAction(addr, auth)
 }
 

@@ -20,7 +20,6 @@ type (
 		password string
 		host     string
 	}
-	mysqlMap map[string]string
 )
 
 var (
@@ -41,6 +40,7 @@ func MySQLInit() {
 	}
 	mysqlSetting = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		s.user, s.password, s.host, s.port, s.db)
+	log.Println(mysqlSetting)
 	DefaultMySQLAction.DB = newMysql()
 }
 

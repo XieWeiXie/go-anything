@@ -39,11 +39,7 @@ func (G *GoAnythingConfigs) LoadConfigs(key string) interface{} {
 		return "-1"
 	}
 
-	if Env != "" {
-		key = fmt.Sprintf("%s.%s", Env, key)
-	} else {
-		key = fmt.Sprintf("dev.%s", key)
-	}
+	key = fmt.Sprintf("%s.%s", Env, key)
 	log.Println("configs: LoadConfigs: key:", key)
 	return G.v.Get(key)
 }

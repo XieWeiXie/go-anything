@@ -21,6 +21,8 @@ services:
       - 8081:8888
     links:
       - mysql:mysql
+    networks:
+      - go-anything-network
 networks:
   go-anything-network:
     driver: bridge

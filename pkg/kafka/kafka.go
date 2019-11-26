@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/Shopify/sarama"
 	"github.com/wuxiaoxiaoshen/go-anything/configs"
+
+	"github.com/Shopify/sarama"
 )
 
 type (
@@ -26,6 +27,10 @@ var (
 )
 
 func init() {
+
+}
+
+func KafkaInit() {
 	r := configs.DefaultConfigs.LoadConfigs("kafka")
 	a := r.(map[string]interface{})
 	log.Println(fmt.Sprintf("Keys: Kafka: %#v", r))
@@ -34,10 +39,6 @@ func init() {
 		topic:         a["topic"].(string),
 		consumerGroup: a["consumergroup"].(string),
 	}
-
-}
-
-func KafkaInit() {
 	broker := settings.broker
 	Topic = settings.topic
 	DefaultAsyncProducer.producer = newProducer([]string{broker})

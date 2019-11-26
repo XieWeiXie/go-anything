@@ -4,8 +4,12 @@ import (
 	"log"
 	"os"
 
+	"github.com/wuxiaoxiaoshen/go-anything/configs"
+
 	"github.com/wuxiaoxiaoshen/go-anything/cmd"
 )
+
+var Env string
 
 func Execute() error {
 	e := cmd.ROOT.Execute()
@@ -15,8 +19,16 @@ func Execute() error {
 	}
 	return nil
 }
-
+func init() {
+	log.Println("Env: ", Env)
+}
 func main() {
+
+	if Env == "" {
+		configs.Env = "dev"
+	} else {
+		configs.Env = Env
+	}
 	e := Execute()
 	if e != nil {
 		os.Exit(1)

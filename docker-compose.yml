@@ -9,6 +9,8 @@ services:
       - 6379
     container_name: redis_for_go_anything
     command: redis-server --appendonly yes --requirepass "adminRedis"
+    networks:
+      - go-anything-network
   mysql:
     image: mysql:latest
     container_name: mysql_for_go_anything
@@ -33,22 +35,28 @@ services:
       KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
     depends_on:
       - zookeeper
+    networks:
+      - go-anything-network
   zookeeper:
     image: index.docker.io/wurstmeister/zookeeper:latest
     container_name: zookeeper_for_go_anything
     ports:
       - 2181:2181
-  go-anything:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8081:8888
-    links:
-      - mysql:mysql
-      - redis
-      - kafka
-      - zookeeper
+    networks:
+      - go-anything-network
+#  go-anything:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8081:8888
+#    links:
+#      - mysql:mysql
+#      - redis:redis
+#      - kafka:kafka
+#      - zookeeper:zookeeper
+#    networks:
+#      - go-anything-network
 networks:
   go-anything-network:
     driver: bridge
