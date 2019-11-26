@@ -4,7 +4,7 @@ MAINTAINER XieWei(1156143589@qq.com)
 
 EXPOSE 8888 8081
 
-WORKDIR /go/src/go-anything
+WORKDIR /go/src/github.com/wuxiaoxiaoshen/go-anything
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
