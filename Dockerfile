@@ -9,7 +9,6 @@ RUN echo "Asia/Shanghai" > /etc/timezone
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 WORKDIR /go/src/github.com/wuxiaoxiaoshen/go-anything
-RUN cd ..
 RUN echo $PWD
 COPY . /go/src/github.com/wuxiaoxiaoshen/go-anything
 
