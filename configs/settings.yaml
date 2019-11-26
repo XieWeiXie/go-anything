@@ -28,13 +28,13 @@ dev:
     db: go-anything
     user: root
     passwd: adminMysql
-    host: "127.0.0.1"
+    host: "0.0.0.0"
   redis:
     port: "6379"
     auth: adminRedis
-    host: "127.0.0.1"
+    host: "0.0.0.0"
   kafka:
-    broker: 127.0.0.1:9092
+    broker: 0.0.0.0:9092
     topic: go-anything
     consumerGroup: go-anything-consumer-group
   email:

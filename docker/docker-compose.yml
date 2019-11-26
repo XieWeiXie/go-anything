@@ -32,8 +32,6 @@ services:
       MYSQL_USER: root
     networks:
       - go-anything-network
-    volumes:
-      - data:/var/lib/mysql
   kafka:
     image: wurstmeister/kafka
     container_name: kafka_for_go_anything
@@ -48,12 +46,10 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_OFFSETS_TOPIC_REPLIATION_FACTOR: 1
       KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
-      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     networks:
       - go-anything-network
-    volumes:
-      - data:/kafka/kafka-logs-kafka
     depends_on:
       - zookeeper
   zookeeper:
@@ -68,8 +64,6 @@ services:
       ZOO_MY_ID: 1
     networks:
       - go-anything-network
-    volumes:
-      - data:/data
   go-anything:
     container_name: go-anything-1
     restart: always
