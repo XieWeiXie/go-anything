@@ -10,7 +10,7 @@ services:
     container_name: redis_for_go_anything
     command: redis-server --appendonly yes --requirepass "adminRedis"
   mysql:
-    image: mysql:latest
+    image: mysql
     container_name: mysql_for_go_anything
     expose:
       - 3306
@@ -29,7 +29,7 @@ services:
       - 9092:9092
     environment:
       KAFKA_OFFSETS_TOPIC_REPLIATION_FACTOR: 1
-      KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
     depends_on:
