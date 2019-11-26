@@ -34,7 +34,7 @@ dev:
     auth: adminRedis
     host: "127.0.0.1"
   kafka:
-    broker: 0.0.0.0:9092
+    broker: 127.0.0.1:9092
     topic: go-anything
     consumerGroup: go-anything-consumer-group
   email:
