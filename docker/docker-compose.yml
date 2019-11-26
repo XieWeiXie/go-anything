@@ -75,7 +75,7 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: docker/dockerfile
+      dockerfile: Dockerfile
     ports:
       - 8081:8888
       - 8082:8888
