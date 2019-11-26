@@ -20,7 +20,7 @@ services:
       MYSQL_DATABASE: go-anything
       MYSQL_USER: root
     ports:
-      - 3307:3306
+      - 3306:3306
   kafka:
     image: index.docker.io/wurstmeister/kafka:latest
     container_name: kafka_for_go_anything
@@ -38,6 +38,17 @@ services:
     container_name: zookeeper_for_go_anything
     ports:
       - 2181:2181
+  go-anything:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8888
+    links:
+      - mysql:mysql
+      - redis
+      - kafka
+      - zookeeper
 networks:
   go-anything-network:
     driver: bridge
