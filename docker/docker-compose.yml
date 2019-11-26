@@ -73,9 +73,7 @@ services:
   go-anything:
     container_name: go-anything-1
     restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: wuxiaoshen/go-anything:v0.7
     ports:
       - 8081:8888
       - 8082:8888
