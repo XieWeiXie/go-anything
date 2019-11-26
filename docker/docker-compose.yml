@@ -86,6 +86,8 @@ services:
       - zookeeper
     networks:
       - go-anything-network
+    volumes:
+      - data:/go/src/go-anything
     command: ["bash","-c", "go run go/src/go-anything/main.go"]
 
 networks:
