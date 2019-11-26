@@ -34,18 +34,14 @@ services:
       KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
     depends_on:
       - zookeeper
-    volumes:
-      - /etc/localtime:/etc/localtime
   zookeeper:
     image: index.docker.io/wurstmeister/zookeeper:latest
     container_name: zookeeper_for_go_anything
-    volumes:
-      - /etc/localtime:/etc/localtime
     ports:
       - 2181:2181
   go-anything:
     container_name: go-anything-project
-    image: wuxiaoshen/go-anything:v0.7
+    image: wuxiaoshen/go-anything:v0.8
     ports:
       - 8081:8888
     links:
