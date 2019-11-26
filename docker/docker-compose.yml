@@ -3,87 +3,53 @@ version: "3"
 services:
   redis:
     image: redis:latest
-    restart: always
     ports:
       - 6379:6379
     expose:
       - 6379
-      - 6378
     container_name: redis_for_go_anything
     command: redis-server --appendonly yes --requirepass "adminRedis"
-    networks:
-      - go-anything-network
-    volumes:
-      - data:/data
-      - dir:/usr/local/etc/redis/redis.conf
   mysql:
     image: mysql:latest
     container_name: mysql_for_go_anything
     expose:
-      - 3307
       - 3306
     ports:
       - 3306:3306
-    restart: always
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: adminMysql
       MYSQL_DATABASE: go-anything
       MYSQL_USER: root
-    networks:
-      - go-anything-network
   kafka:
-    image: wurstmeister/kafka
+    image: index.docker.io/wurstmeister/kafka:latest
     container_name: kafka_for_go_anything
-    restart: always
     ports:
       - 9092:9092
-      - 9094:9094
-    expose:
-      - 9092
-      - 9094
     environment:
-      KAFKA_BROKER_ID: 1
       KAFKA_OFFSETS_TOPIC_REPLIATION_FACTOR: 1
-      KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
       KAFKA_ADVERTISED_HOST_NAME: 0.0.0.0
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-    networks:
-      - go-anything-network
+      KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
     depends_on:
       - zookeeper
+    volumes:
+      - /etc/localtime:/etc/localtime
   zookeeper:
-    image: zookeeper
+    image: index.docker.io/wurstmeister/zookeeper:latest
     container_name: zookeeper_for_go_anything
-    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
     ports:
       - 2181:2181
-    expose:
-      - 2181
-    environment:
-      ZOO_MY_ID: 1
-    networks:
-      - go-anything-network
   go-anything:
-    container_name: go-anything-1
-    restart: always
+    container_name: go-anything-project
     image: wuxiaoshen/go-anything:v0.7
     ports:
       - 8081:8888
-      - 8082:8888
-    depends_on:
+    links:
       - redis
       - mysql
       - kafka
       - zookeeper
-    networks:
-      - go-anything-network
     command: ["bash","-c", "go run /go/src/github.com/wuxiaoxiaoshen/go-anything/main.go"]
-
-networks:
-  go-anything-network:
-    driver: bridge
-volumes:
-  data: {}
-  dir: {}
-
