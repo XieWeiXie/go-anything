@@ -14,8 +14,9 @@ services:
     container_name: mysql_for_go_anything
     expose:
       - 3306
+      - 3307
     ports:
-      - 3306:3306
+      - 3307:3306
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: adminMysql
