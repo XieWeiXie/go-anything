@@ -39,8 +39,8 @@ func MySQLInit() {
 		password: a["passwd"].(string),
 		host:     a["host"].(string),
 	}
-	mysqlSetting = fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
-		s.user, s.password, s.host, s.db)
+	mysqlSetting = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
+		s.user, s.password, s.host, s.port, s.db)
 	DefaultMySQLAction.DB = newMysql()
 }
 
