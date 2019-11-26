@@ -3,30 +3,76 @@ version: "3"
 services:
   redis:
     image: redis:latest
-    container_name: redis-1
-    networks:
-      - network-service
+    restart: always
     ports:
       - 6379:6379
-    command:  redis-server --appendonly yes
+    expose:
+      - 6379
+      - 6378
+    container_name: redis_for_go_anything
+    command: redis-server --appendonly yes --requirepass "adminRedis"
+    networks:
+      - go-anything-network
+    volumes:
+      - data:/data
+      - dir:/usr/local/etc/redis/redis.conf
   mysql:
     image: mysql:latest
-    container_name: mysql-1
-    networks:
-      - network-service
+    container_name: mysql_for_go_anything
+    expose:
+      - 3307
+      - 3306
     ports:
       - 3306:3306
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
     environment:
-      - MYSQL_ROOT_PASSWORD="admin123"
-  postgres:
-    image: postgres:latest
-    container_name: postgres-1
+      MYSQL_ROOT_PASSWORD: adminMysql
+      MYSQL_DATABASE: go-anything
+      MYSQL_USER: root
     networks:
-      - network-service
+      - go-anything-network
+    volumes:
+      - data:/var/lib/mysql
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka_for_go_anything
+    restart: always
     ports:
-      - 5432:5432
+      - 9092:9092
+      - 9094:9094
+    expose:
+      - 9092
+      - 9094
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLIATION_FACTOR: 1
+      KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    networks:
+      - go-anything-network
+    volumes:
+      - data:/kafka/kafka-logs-kafka
+    depends_on:
+      - zookeeper
+  zookeeper:
+    image: zookeeper
+    container_name: zookeeper_for_go_anything
+    restart: always
+    ports:
+      - 2181:2181
+    expose:
+      - 2181
+    environment:
+      ZOO_MY_ID: 1
+    networks:
+      - go-anything-network
+    volumes:
+      - data:/data
   go-anything:
     container_name: go-anything-1
+    restart: always
     build:
       context: .
       dockerfile: docker/dockerfile
@@ -36,13 +82,16 @@ services:
     depends_on:
       - redis
       - mysql
-      - postgres
+      - kafka
+      - zookeeper
     networks:
-      - network-service
+      - go-anything-network
     command: ["bash","-c", "go run go/src/go-anything/main.go"]
 
 networks:
-  network-service:
+  go-anything-network:
     driver: bridge
 volumes:
-  data:
+  data: {}
+  dir: {}
+

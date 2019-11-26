@@ -4,6 +4,7 @@ services:
   kafka:
     image: wurstmeister/kafka
     container_name: kafka_for_go_anything
+    restart: always
     ports:
       - 9092:9092
       - 9094:9094
