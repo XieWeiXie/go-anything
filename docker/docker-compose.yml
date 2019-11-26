@@ -86,7 +86,7 @@ services:
       - zookeeper
     networks:
       - go-anything-network
-    command: ["bash","-c", "go run /go/src/go-anything/main.go"]
+    command: ["bash","-c", "go run /go/src/github.com/wuxiaoxiaoshen/go-anything/main.go"]
 
 networks:
   go-anything-network:
