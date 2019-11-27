@@ -1,10 +1,9 @@
 package model
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
-
-	"k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/json"
 )
 
 type UserKafka struct {
