@@ -27,9 +27,9 @@ var EmailCmd = &cobra.Command{
 		log.Println("Step 1: Email init ...")
 		email_operate.EmailInit()
 		now := time.Now()
-		fundURL = fmt.Sprintf(fundURL+"beg=%s&end=%s", 20190101, now.Format("20160102"))
+		fundURL = fmt.Sprintf(fundURL+"beg=%s&end=%s", "20190101", now.Format("20060102"))
 		log.Println("Step 2: Fund url init ...", fundURL)
-		bingURL = fmt.Sprintf(bingURL, now.Format("20090102"))
+		bingURL = fmt.Sprintf(bingURL, now.Format("20060102"))
 		log.Println("Step 3: Bing url init ...", bingURL)
 	},
 	Run: func(cmd *cobra.Command, args []string) {
@@ -64,6 +64,9 @@ func fund() fundData {
 	d := parse.Get("data")
 	var result fundData
 	length := len(d.Get("klines").Array())
+	if length <= 0 {
+		return fundData{}
+	}
 	before := strings.Split(d.Get("klines").Array()[length-2].String(), ",")
 	lines := d.Get("klines").Array()[length-1]
 	list := strings.Split(lines.String(), ",")
@@ -91,22 +94,31 @@ func fund() fundData {
 func bing() string {
 	// 9:00
 	data := chromedp_helper.GetPageSourceHTTP(bingURL)
-	images := gjson.Parse(data).Get("images").Array()[0]
+	list := gjson.Parse(data).Get("images").Array()
+	if len(list) <= 0 {
+		return "-1"
+	}
+	images := list[0]
 	url := fmt.Sprintf("%s%s", "https://cn.bing.com", strings.TrimSpace(images.Get("url").String()))
 	return url
 }
 
 func send() {
 	var content struct {
-		Fund fundData `json:"fund"`
-		Url  string   `json:"url"`
+		fundData `json:"fund"`
+		Url      string `json:"url"`
 	}
-	content.Fund = fund()
+	content.fundData = fund()
 	content.Url = bing()
 	t := template.New("index.html")
 	tem, _ := t.Parse(templateForEmail())
 	var byt bytes.Buffer
-	tem.Execute(&byt, content)
+	e := tem.Execute(&byt, content)
+	if e != nil {
+		log.Println("send email", e.Error())
+		return
+	}
+	fmt.Println(byt.String())
 	email_operate.DefaultEmailAction.AddContent(byt.String())
 	email_operate.DefaultEmailAction.Run("今日上证指数行情 || 今日壁纸")
 
@@ -116,6 +128,8 @@ func templateForEmail() string {
 	return `
 <html>
  <h1>今日上证指数行情 ==  今日壁纸</h1>
+ <br>
+ <br>
  <body>
 	<table border="1">
 	  <tr>
@@ -139,6 +153,9 @@ func templateForEmail() string {
 		<td>{{.Rate}}</td>
 	  </tr>
 	</table>
+ <br>
+ <br>
+ <br>
  <img src="{{.Url}}" alt="image">
  </body>
 </html>
