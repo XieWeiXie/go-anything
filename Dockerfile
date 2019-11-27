@@ -4,17 +4,17 @@ MAINTAINER XieWei(1156143589@qq.com)
 
 EXPOSE 8888 8081
 
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN echo "Asia/Shanghai" > /etc/timezone
-RUN dpkg-reconfigure -f noninteractive tzdata
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;\
+    echo "Asia/Shanghai" > /etc/timezone;\
+    dpkg-reconfigure -f noninteractive tzdata
 
 WORKDIR /go/src/github.com/wuxiaoxiaoshen/go-anything
 RUN echo $PWD
 COPY . /go/src/github.com/wuxiaoxiaoshen/go-anything
 
-RUN apt-get update && apt-get install -q -y vim nginx postgresql-client git openssh-client cron && apt-get clean;\
+RUN apt-get update && apt-get install -q -y vim nginx  git openssh-client cron && apt-get clean;\
     go mod vendor;\
     make remove;\
-    make build;\
+    make prod;\
     echo Succeed!
-CMD ["bash","-c", "go run /go/src/github.com/wuxiaoxiaoshen/go-anything/main.go"]
+CMD ["bash","-c", "/go/src/github.com/wuxiaoxiaoshen/go-anything/go-anything"]

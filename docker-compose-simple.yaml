@@ -19,6 +19,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8081:8888
+    depends_on:
+      - mysql
     links:
       - mysql:mysql
     networks:
