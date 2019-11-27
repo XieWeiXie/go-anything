@@ -35,7 +35,10 @@
 - redis
 - docker / docker-compose
 - go / iris
+- k8s
 
 
 ## CHANGELOG
 
+
+- docker-compose 版本：v2.0
