@@ -3,6 +3,8 @@ package router
 import (
 	"fmt"
 
+	"github.com/wuxiaoxiaoshen/go-anything/src/k8s"
+
 	"github.com/wuxiaoxiaoshen/go-anything/src/Healthz"
 
 	"github.com/wuxiaoxiaoshen/go-anything/src/fund"
@@ -34,6 +36,7 @@ func register(app *iris.Application) {
 	app.PartyFunc("/v1/api/jav", Jav.RegisterJav)
 	app.PartyFunc("/v1/api/bing", Bing.RegisterBing)
 	app.PartyFunc("/v1/api/tt", fund.RegisterFund)
+	app.PartyFunc("/v1/api/k8s", k8s.RegisterForK8s)
 
 }
 func Run(port string) {

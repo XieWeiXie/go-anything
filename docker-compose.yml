@@ -11,6 +11,8 @@ services:
     command: redis-server --appendonly yes --requirepass "adminRedis"
     networks:
       - go-anything-network
+    volumes:
+      - data/redis:/data
   mysql:
     image: mysql:latest
     container_name: mysql_for_go_anything
@@ -23,6 +25,8 @@ services:
       MYSQL_USER: root
     ports:
       - 3306:3306
+    volumes:
+      - data/myaql:/var/lib/mysql
   kafka:
     image: index.docker.io/wurstmeister/kafka:latest
     container_name: kafka_for_go_anything
@@ -33,10 +37,13 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
+      KAFKA_LOG_DIRS: /kafka/kafka-logs
     depends_on:
       - zookeeper
     networks:
       - go-anything-network
+    volumes:
+      - data/kafka:/kafka/kafka-logs
   zookeeper:
     image: index.docker.io/wurstmeister/zookeeper:latest
     container_name: zookeeper_for_go_anything
@@ -63,3 +70,5 @@ services:
 networks:
   go-anything-network:
     driver: bridge
+volumes:
+  data: {}

@@ -47,4 +47,5 @@ func init() {
 	ROOT.AddCommand(JAV)
 	ROOT.AddCommand(FundCmd)
 	ROOT.AddCommand(ConfigsCmd)
+	ROOT.AddCommand(KubernetesCmd)
 }

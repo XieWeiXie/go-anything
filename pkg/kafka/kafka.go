@@ -42,6 +42,7 @@ func KafkaInit() {
 	broker := settings.broker
 	Topic = settings.topic
 	DefaultAsyncProducer.producer = newProducer([]string{broker})
+	DefaultKafkaClusterAdminAction = newKafkaClusterAdmin([]string{broker})
 }
 
 func newProducer(broker []string) sarama.AsyncProducer {
@@ -62,11 +63,10 @@ func (K *kafkaAction) Close() {
 	defer K.producer.AsyncClose()
 }
 
-func (K *kafkaAction) Run(topic string, v interface{}) {
-	message := v.(Message)
-	log.Println(fmt.Sprintf("KafkaAction: Send Message: %+v", message))
+func (K *kafkaAction) Run(topic string, v sarama.Encoder) {
+	log.Println(fmt.Sprintf("KafkaAction: Send Message: %+v", v))
 	K.producer.Input() <- &sarama.ProducerMessage{
 		Topic: topic,
-		Value: &message,
+		Value: v,
 	}
 }
