@@ -45,11 +45,14 @@ services:
     networks:
       - go-anything-network
 #  go-anything:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
+#    image: wuxiaoshen/go-anything:v0.13
 #    ports:
 #      - 8081:8888
+#    depends_on:
+#      - mysql
+#      - redis
+#      - kafka
+#      - zookeeper
 #    links:
 #      - mysql:mysql
 #      - redis:redis
