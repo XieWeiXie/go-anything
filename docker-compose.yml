@@ -12,7 +12,7 @@ services:
     networks:
       - go-anything-network
     volumes:
-      - data/redis:/data
+      - data:/data
   mysql:
     image: mysql:latest
     container_name: mysql_for_go_anything
@@ -26,7 +26,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - data/myaql:/var/lib/mysql
+      - data:/var/lib/mysql
   kafka:
     image: index.docker.io/wurstmeister/kafka:latest
     container_name: kafka_for_go_anything
@@ -43,7 +43,7 @@ services:
     networks:
       - go-anything-network
     volumes:
-      - data/kafka:/kafka/kafka-logs
+      - data:/kafka/kafka-logs
   zookeeper:
     image: index.docker.io/wurstmeister/zookeeper:latest
     container_name: zookeeper_for_go_anything
