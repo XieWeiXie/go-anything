@@ -29,12 +29,13 @@ var EmailCmd = &cobra.Command{
 		now := time.Now()
 		fundURL = fmt.Sprintf(fundURL+"beg=%s&end=%s", "20190101", now.Format("20060102"))
 		log.Println("Step 2: Fund url init ...", fundURL)
-		bingURL = fmt.Sprintf(bingURL, now.Format("20060102"))
+		bingURL = fmt.Sprintf(bingURL, "0")
 		log.Println("Step 3: Bing url init ...", bingURL)
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		log.Println("Start ...")
 		send()
+		//fmt.Println(bing())
 		//fmt.Println(fund(), bing())
 		log.Println("End ...")
 	},
@@ -127,7 +128,7 @@ func send() {
 func templateForEmail() string {
 	return `
 <html>
- <h1>今日上证指数行情 ==  今日壁纸</h1>
+ <h1>今日上证指数行情 ||  今日壁纸</h1>
  <br>
  <br>
  <body>
