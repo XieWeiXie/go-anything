@@ -1,0 +1,116 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zookeeper-cluster-service-1
+  name: zookeeper-cluster1
+  namespace: xw
+spec:
+  ports:
+    - name: client
+      port: 2181
+      protocol: TCP
+    - name: follower
+      port: 2888
+      protocol: TCP
+    - name: leader
+      port: 3888
+      protocol: TCP
+  selector:
+    app: zookeeper-cluster-service-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zookeeper-cluster-service-2
+  name: zookeeper-cluster2
+  namespace: go-anything-namespace
+spec:
+  ports:
+    - name: client
+      port: 2181
+      protocol: TCP
+    - name: follower
+      port: 2888
+      protocol: TCP
+    - name: leader
+      port: 3888
+      protocol: TCP
+  selector:
+    app: zookeeper-cluster-service-2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zookeeper-cluster-service-3
+  name: zookeeper-cluster3
+  namespace: go-anything-namespace
+spec:
+  ports:
+    - name: client
+      port: 2181
+      protocol: TCP
+    - name: follower
+      port: 2888
+      protocol: TCP
+    - name: leader
+      port: 3888
+      protocol: TCP
+  selector:
+    app: zookeeper-cluster-service-3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-cluster1
+  labels:
+    app: kafka-cluster-1
+  namespace: go-anything-namespace
+spec:
+  type: NodePort
+  ports:
+    - port: 9092
+      name: kafka-cluster-1
+      targetPort: 9092
+      nodePort: 39091
+      protocol: TCP
+  selector:
+    app: kafka-cluster-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-cluster2
+  labels:
+    app: kafka-cluster-2
+  namespace: go-anything-namespace
+spec:
+  type: NodePort
+  ports:
+    - port: 9092
+      name: kafka-cluster-2
+      targetPort: 9092
+      nodePort: 39092
+      protocol: TCP
+  selector:
+    app: kafka-cluster-2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-cluster3
+  labels:
+    app: kafka-cluster-3
+  namespace: go-anything-namespace
+spec:
+  type: NodePort
+  ports:
+    - port: 9092
+      name: kafka-cluster-3
+      targetPort: 9092
+      nodePort: 39093
+      protocol: TCP
+  selector:
+    app: kafka-cluster-3

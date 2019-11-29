@@ -1,0 +1,211 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zookeeper-cluster-service-1
+  name: zookeeper-cluster-1
+  namespace: go-anything-namespace
+spec:
+  selector:
+    matchLabels:
+      app: zookeeper-cluster-service-1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zookeeper-cluster-service-1
+        name: zookeeper-cluster-1
+    spec:
+      containers:
+        - image: zookeeper
+          imagePullPolicy: IfNotPresent
+          name: zookeeper-cluster-1
+          ports:
+            - containerPort: 2181
+          env:
+            - name: ZOO_MY_ID
+              value: "1"
+            - name: ZOO_SERVERS
+              value: "server.1=0.0.0.0:2888:3888 server.2=zookeeper-cluster2:2888:3888 server.3=zookeeper-cluster3:2888:3888"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zookeeper-cluster-service-2
+  name: zookeeper-cluster-2
+  namespace: go-anything-namespace
+spec:
+  selector:
+    matchLabels:
+      app: zookeeper-cluster-service-2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zookeeper-cluster-service-2
+        name: zookeeper-cluster-2
+    spec:
+      containers:
+        - image: zookeeper
+          imagePullPolicy: IfNotPresent
+          name: zookeeper-cluster-2
+          ports:
+            - containerPort: 2181
+          env:
+            - name: ZOO_MY_ID
+              value: "2"
+            - name: ZOO_SERVERS
+              value: "server.1=zookeeper-cluster1:2888:3888 server.2=0.0.0.0:2888:3888 server.3=zookeeper-cluster3:2888:3888"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zookeeper-cluster-service-1
+  name: zookeeper-cluster-3
+  namespace: go-anything-namespace
+spec:
+  selector:
+    matchLabels:
+      app: zookeeper-cluster-service-3
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zookeeper-cluster-service-3
+        name: zookeeper-cluster-3
+    spec:
+      containers:
+        - image: zookeeper
+          imagePullPolicy: IfNotPresent
+          name: zookeeper-cluster-3
+          ports:
+            - containerPort: 2181
+          env:
+            - name: ZOO_MY_ID
+              value: "3"
+            - name: ZOO_SERVERS
+              value: "server.1=zookeeper-cluster1:2888:3888 server.2=zookeeper-cluster2:2888:3888 server.3=0.0.0.0:2888:3888"
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: kafka-cluster-1
+  namespace: go-anything-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: kafka-cluster-1
+  template:
+    metadata:
+      labels:
+        name: kafka-cluster-1
+        app: kafka-cluster-1
+    spec:
+      containers:
+        - name: kafka-cluster-1
+          image: wurstmeister/kafka
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9092
+          resources:
+            limits:
+              cpu: "800m"
+              memory: "2048Mi"
+          env:
+            - name: KAFKA_ADVERTISED_PORT
+              value: "9092"
+            - name: KAFKA_PORT
+              value: "9092"
+            - name: KAFKA_ADVERTISED_LISTENERS
+              value: "PLAINTEXT://10.247.96.123:9092"
+            - name: KAFKA_LISTENERS
+              value: "PLAINTEXT://:9092"
+            - name: KAFKA_ZOOKEEPER_CONNECT
+              value: 10.247.78.215:2181,10.247.86.56:2181,10.247.131.34:2181
+            - name: KAFKA_BROKER_ID
+              value: "1"
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: kafka-cluster-2
+  namespace: go-anything-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: kafka-cluster-2
+  template:
+    metadata:
+      labels:
+        name: kafka-cluster-2
+        app: kafka-cluster-2
+    spec:
+      containers:
+        - name: kafka-cluster-2
+          image: wurstmeister/kafka
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9092
+          resources:
+            limits:
+              cpu: "800m"
+              memory: "2048Mi"
+          env:
+            - name: KAFKA_ADVERTISED_PORT
+              value: "9092"
+            - name: KAFKA_ADVERTISED_LISTENERS
+              value: "PLAINTEXT://10.247.28.21:9092"
+            - name: KAFKA_LISTENERS
+              value: "PLAINTEXT://:9092"
+            - name: KAFKA_PORT
+              value: "9092"
+            - name: KAFKA_ZOOKEEPER_CONNECT
+              value: 10.247.78.215:2181,10.247.86.56:2181,10.247.131.34:2181
+            - name: KAFKA_BROKER_ID
+              value: "2"
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: kafka-cluster-3
+  namespace: go-anything-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: kafka-cluster-3
+  template:
+    metadata:
+      labels:
+        name: kafka-cluster-3
+        app: kafka-cluster-3
+    spec:
+      containers:
+        - name: kafka-cluster-3
+          image: wurstmeister/kafka
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9092
+          resources:
+            limits:
+              cpu: "800m"
+              memory: "2048Mi"
+          env:
+            - name: KAFKA_ADVERTISED_PORT
+              value: "9092"
+            - name: KAFKA_PORT
+              value: "9092"
+            - name: KAFKA_ADVERTISED_LISTENERS
+              value: "PLAINTEXT://10.247.140.75:9092"
+            - name: KAFKA_LISTENERS
+              value: "PLAINTEXT://:9092"
+            - name: KAFKA_ZOOKEEPER_CONNECT
+              value: 10.247.78.215:2181,10.247.86.56:2181,10.247.131.34:2181
+            - name: KAFKA_BROKER_ID
+              value: "3"

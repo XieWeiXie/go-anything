@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-configmap
+  labels:
+    app: my-configmap
+  namespace: xw
+data:
+  # Mysql
+  mysql.MYSQL_DATABASE: go-anything
+  mysql.MYSQL_ROOT_PASSWORD: adminMysql
+  # redis
+  redis.REDIS_AUTH: adminRedis

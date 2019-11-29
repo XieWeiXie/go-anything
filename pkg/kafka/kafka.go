@@ -3,6 +3,7 @@ package kafka_operator
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/wuxiaoxiaoshen/go-anything/configs"
 
@@ -40,6 +41,9 @@ func KafkaInit() {
 		consumerGroup: a["consumergroup"].(string),
 	}
 	broker := settings.broker
+	if os.Getenv(configs.KAFKA_BROKER_LIST) == "" {
+		broker = os.Getenv(configs.KAFKA_BROKER_LIST)
+	}
 	Topic = settings.topic
 	DefaultAsyncProducer.producer = newProducer([]string{broker})
 	DefaultKafkaClusterAdminAction = newKafkaClusterAdmin([]string{broker})

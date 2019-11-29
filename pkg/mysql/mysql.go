@@ -3,6 +3,7 @@ package mysql_operator
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -38,8 +39,15 @@ func MySQLInit() {
 		password: a["passwd"].(string),
 		host:     a["host"].(string),
 	}
+	if os.Getenv(configs.MYSQL_HOST) != "" {
+		s.host = os.Getenv(configs.MYSQL_HOST)
+	}
+	if os.Getenv(configs.MYSQL_PORT) != "" {
+		s.port = os.Getenv(configs.REDIS_PORT)
+	}
 	mysqlSetting = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		s.user, s.password, s.host, s.port, s.db)
+
 	log.Println(mysqlSetting)
 	DefaultMySQLAction.DB = newMysql()
 }

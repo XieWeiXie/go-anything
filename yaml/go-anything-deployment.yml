@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-anything-deployment
+  labels:
+    app: go-anything-deployment
+  namespace: xw
+spec:
+  selector:
+    matchLabels:
+      app: go-anything
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: go-anything
+    spec:
+      containers:
+        - name: go-anything
+          imagePullPolicy: Always
+          image: wuxiaoshen/go-anything:v0.15
+          ports:
+            - containerPort: 8888
+          env:
+            - name: MYSQL_HOST
+              value: ""
+            - name: MYSQL_PORT
+              value: ""
+            - name: REDIS_PORT
+              value: ""
+            - name: REDIS_HOST
+              value: ""
+            - name: KAFKA_BROKER_LIST
+              value: ""

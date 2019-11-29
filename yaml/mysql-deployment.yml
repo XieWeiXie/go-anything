@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    app: mysql-deployment
+  namespace: xw
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql-container
+          image: mysql
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  key: mysql.MYSQL_DATABASE
+                  name: my-configmap
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: mysql.MYSQL_ROOT_PASSWORD
+                  name: my-configmap

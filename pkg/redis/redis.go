@@ -3,6 +3,7 @@ package redis_operator
 import (
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/wuxiaoxiaoshen/go-anything/configs"
@@ -40,6 +41,12 @@ func RedisInit() {
 		port: a["port"].(string),
 		auth: a["auth"].(string),
 		host: a["host"].(string),
+	}
+	if os.Getenv(configs.REDIS_HOST) != "" {
+		setting.host = os.Getenv(configs.REDIS_HOST)
+	}
+	if os.Getenv(configs.REDIS_PORT) != "" {
+		setting.port = os.Getenv(configs.REDIS_PORT)
 	}
 	addr = fmt.Sprintf("%s:%s", setting.host, setting.port)
 	auth = setting.auth
