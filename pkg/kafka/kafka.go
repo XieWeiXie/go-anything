@@ -41,9 +41,11 @@ func KafkaInit() {
 		consumerGroup: a["consumergroup"].(string),
 	}
 	broker := settings.broker
-	if os.Getenv(configs.KAFKA_BROKER_LIST) == "" {
+	if os.Getenv(configs.KAFKA_BROKER_LIST) != "" {
 		broker = os.Getenv(configs.KAFKA_BROKER_LIST)
+
 	}
+	//broker = "119.3.198.221:30092"
 	Topic = settings.topic
 	DefaultAsyncProducer.producer = newProducer([]string{broker})
 	DefaultKafkaClusterAdminAction = newKafkaClusterAdmin([]string{broker})

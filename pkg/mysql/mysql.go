@@ -41,10 +41,14 @@ func MySQLInit() {
 	}
 	if os.Getenv(configs.MYSQL_HOST) != "" {
 		s.host = os.Getenv(configs.MYSQL_HOST)
+
 	}
+	//s.host = "119.3.198.221"
 	if os.Getenv(configs.MYSQL_PORT) != "" {
 		s.port = os.Getenv(configs.MYSQL_PORT)
+
 	}
+	//s.port = "30000"
 	mysqlSetting = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		s.user, s.password, s.host, s.port, s.db)
 
