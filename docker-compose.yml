@@ -50,22 +50,6 @@ services:
       - 2181:2181
     networks:
       - go-anything-network
-#  go-anything:
-#    image: wuxiaoshen/go-anything:v0.13
-#    ports:
-#      - 8081:8888
-#    depends_on:
-#      - mysql
-#      - redis
-#      - kafka
-#      - zookeeper
-#    links:
-#      - mysql:mysql
-#      - redis:redis
-#      - kafka:kafka
-#      - zookeeper:zookeeper
-#    networks:
-#      - go-anything-network
 networks:
   go-anything-network:
     driver: bridge
