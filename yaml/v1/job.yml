@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-db-table-job
+  labels:
+    app: create-db-table-job
+  namespace: xw
+spec:
+  template:
+    spec:
+      containers:
+        - name: create-db-table-job
+          image: 100.125.0.198:20202/wuxiaoshen/go-anything:v0.19
+          imagePullPolicy: IfNotPresent
+          command: ["bash","-c", "/go/src/github.com/wuxiaoxiaoshen/go-anything/go-anything k8s"]
+          env:
+            - name: MYSQL_HOST
+              value: "119.3.198.221"
+            - name: MYSQL_PORT
+              value: "30000"
+            - name: REDIS_PORT
+              value: "31767"
+            - name: REDIS_HOST
+              value: "119.3.198.221"
+            - name: KAFKA_BROKER_LIST
+              value: "119.3.198.221:30092"
+      restartPolicy: Never
+  backoffLimit: 4

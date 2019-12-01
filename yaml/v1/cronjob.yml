@@ -1,0 +1,21 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: email-cronjob
+  labels:
+    app: email-cronjob
+  namespace: xw
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: email-cronjob
+              image: 100.125.0.198:20202/wuxiaoshen/go-anything:v0.19
+              args:
+                - /bin/sh
+                - -c
+                - /go/src/github.com/wuxiaoxiaoshen/go-anything/main.go email
+          restartPolicy: OnFailure
+  schedule: "*/1 * * * *"
