@@ -18,4 +18,4 @@ spec:
                 - -c
                 - /go/src/github.com/wuxiaoxiaoshen/go-anything/main.go email
           restartPolicy: OnFailure
-  schedule: "*/1 * * * *"
+  schedule: "45 14 * * *"

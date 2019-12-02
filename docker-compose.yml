@@ -32,7 +32,7 @@ services:
       - 9092:9092
     environment:
       KAFKA_OFFSETS_TOPIC_REPLIATION_FACTOR: 1
-      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://127.0.0.1:9092"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
       KAFKA_LISTENERS: "PLAINTEXT://:9092"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_CREATE_TOPICS: "go-anything:20:1:compact"
@@ -50,6 +50,64 @@ services:
       - 2181:2181
     networks:
       - go-anything-network
+  etcd1:
+    image: quay.io/coreos/etcd:v3.3.18
+    container_name: etcd1
+    ports:
+      - 23791:2379
+      - 23801:2380
+    networks:
+      - go-anything-network
+    command:
+      /usr/local/bin/etcd
+      -name etcd1
+      -data-dir=/etcd-data
+      -advertise-client-urls http://etcd1:2379
+      -initial-advertise-peer-urls http://etcd1:2380
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token etcd-cluster
+      -initial-cluster etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
+      -initial-cluster-state new
+  etcd2:
+    image: quay.io/coreos/etcd:v3.3.18
+    container_name: etcd2
+    ports:
+      - 23792:2379
+      - 23802:2380
+    networks:
+      - go-anything-network
+    command:
+      /usr/local/bin/etcd
+      -name etcd2
+      -data-dir=/etcd-data
+      -advertise-client-urls http://etcd2:2379
+      -initial-advertise-peer-urls http://etcd2:2380
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token etcd-cluster
+      -initial-cluster etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
+      -initial-cluster-state new
+  etcd3:
+    image: quay.io/coreos/etcd:v3.3.18
+    container_name: etcd3
+    ports:
+      - 23793:2379
+      - 23803:2380
+    networks:
+      - go-anything-network
+    command:
+      /usr/local/bin/etcd
+      -name etcd3
+      -data-dir=/etcd-data
+      -advertise-client-urls http://etcd3:2379
+      -initial-advertise-peer-urls http://etcd3:2380
+      -listen-client-urls http://0.0.0.0:2379
+      -listen-peer-urls http://0.0.0.0:2380
+      -initial-cluster-token etcd-cluster
+      -initial-cluster etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
+      -initial-cluster-state new
+
 networks:
   go-anything-network:
     driver: bridge
