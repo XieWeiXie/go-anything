@@ -17,8 +17,7 @@ spec:
   template:
     metadata:
       labels:
-        app: xw-example-ectd-1
-        role: etcd
+        app: xw-example-etcd-1
     spec:
       containers:
         - name: etcd-1
@@ -39,6 +38,7 @@ spec:
               value: $(etcd.ETCD_HOST_3)
           command:
             - /usr/local/bin/etcd
+          args:
             - -name etcd1
             - -data-dir=/etcd-data
             - -advertise-client-urls http://"$(HOST_1)":2379
@@ -68,8 +68,7 @@ spec:
   template:
     metadata:
       labels:
-        app: xw-example-ectd-2
-        role: etcd
+        app: xw-example-etcd-2
     spec:
       containers:
         - name: etcd-2
@@ -90,6 +89,7 @@ spec:
               value: $(etcd.ETCD_HOST_3)
           command:
             - /usr/local/bin/etcd
+          args:
             - -name etcd2
             - -data-dir=/etcd-data
             - -advertise-client-urls http://"$(HOST_2)":2379
@@ -119,8 +119,7 @@ spec:
   template:
     metadata:
       labels:
-        app: xw-example-ectd-3
-        role: etcd
+        app: xw-example-etcd-3
     spec:
       containers:
         - name: etcd-3
@@ -141,6 +140,7 @@ spec:
               value: $(etcd.ETCD_HOST_3)
           command:
             - /usr/local/bin/etcd
+          args:
             - -name etcd3
             - -data-dir=/etcd-data
             - -advertise-client-urls http://"$(HOST_3)":2379
