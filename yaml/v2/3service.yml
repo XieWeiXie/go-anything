@@ -1,0 +1,247 @@
+# Mysql-Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-mysql-service
+  labels:
+    app: xw-example-mysql-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-mysql
+  ports:
+    - port: 3306
+      targetPort: 3306
+      protocol: TCP
+  clusterIP: None
+---
+# Redis Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-redis-service
+  labels:
+    app: xw-example-redis-service
+  namespace: xw-example
+spec:
+  clusterIP: None
+  selector:
+    app: xw-example-redis
+  ports:
+    - port: 6379
+      targetPort: 6379
+      protocol: TCP
+---
+# zookeeper 1 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-zookeeper-1-service
+  labels:
+    app: xw-example-zookeeper-1-service
+  namespace: xw-example
+spec:
+  clusterIP: None
+  selector:
+    app: xw-example-zookeeper-1
+  ports:
+    - name: client
+      port: 2181
+      targetPort: 2181
+      protocol: TCP
+    - name: follower
+      port: 2888
+      targetPort: 2888
+      protocol: TCP
+    - name: leader
+      port: 3888
+      targetPort: 3888
+      protocol: TCP
+---
+# zookeeper 2 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-zookeeper-2-service
+  labels:
+    app: xw-example-zookeeper-2-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-zookeeper-2
+  clusterIP: None
+  ports:
+    - name: client
+      port: 2181
+      targetPort: 2181
+      protocol: TCP
+    - name: follower
+      port: 2888
+      targetPort: 2888
+      protocol: TCP
+    - name: leader
+      port: 3888
+      targetPort: 3888
+      protocol: TCP
+---
+# zookeeper 3 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-zookeeper-3-service
+  labels:
+    app: xw-example-zookeeper-3-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-zookeeper-3
+  clusterIP: None
+  ports:
+    - name: client
+      port: 2181
+      targetPort: 2181
+      protocol: TCP
+    - name: follower
+      port: 2888
+      targetPort: 2888
+      protocol: TCP
+    - name: leader
+      port: 3888
+      targetPort: 3888
+      protocol: TCP
+---
+# kafka 1 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-kafka-1-service
+  labels:
+    app: xw-example-kafka-1-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-kafka-1
+  ports:
+    - port: 9092
+      name: kafka-1
+      targetPort: 9092
+      protocol: TCP
+  clusterIP: None
+---
+# kafka 2 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-kafka-2-service
+  labels:
+    app: xw-example-kafka-2-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-kafka-2
+  clusterIP: None
+  ports:
+    - port: 9092
+      name: kafka-2
+      targetPort: 9092
+      protocol: TCP
+---
+# kafka 3 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-kafka-3-service
+  labels:
+    app: xw-example-kafka-3-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-kafka-3
+  clusterIP: None
+  ports:
+    - port: 9092
+      name: kafka-3
+      targetPort: 9092
+      protocol: TCP
+---
+# etcd 1 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-etcd-1-service
+  labels:
+    app: xw-example-etcd-1-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-etcd-1
+  clusterIP: None
+  ports:
+    - port: 2379
+      protocol: TCP
+      targetPort: 2379
+      name: etcd-1
+    - port: 2378
+      protocol: TCP
+      targetPort: 2378
+      name: etcd-11
+---
+# etcd 2 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-etcd-2-service
+  labels:
+    app: xw-example-etcd-2-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-etcd-2
+  clusterIP: None
+  ports:
+    - port: 2379
+      protocol: TCP
+      targetPort: 2379
+      name: etcd-2
+    - port: 2378
+      protocol: TCP
+      targetPort: 2378
+      name: etcd-22
+---
+# etcd 3 service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-etcd-3-service
+  labels:
+    app: xw-example-etcd-3-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-etcd-3
+  clusterIP: None
+  ports:
+    - port: 2379
+      protocol: TCP
+      targetPort: 2379
+      name: etcd-3
+    - port: 2378
+      protocol: TCP
+      targetPort: 2378
+      name: etcd-33
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-go-anything-service
+  labels:
+    app: xw-example-go-anything-service
+  namespace: xw-example
+spec:
+  selector:
+    app: xw-example-go-anything
+  type: NodePort
+  ports:
+    - port: 18089
+      targetPort: 8888
+      nodePort: 32088

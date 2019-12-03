@@ -1,0 +1,13 @@
+apiVersion: settings.k8s.io/v1alpha1
+kind: PodPreset
+metadata:
+  name: xw-example-zookeeper-podpreset
+  labels:
+    app: xw-example-zookeeper-podpreset
+spec:
+  selector:
+    matchLabels:
+      role: zookeeper
+  envFrom:
+    - configMapRef:
+        name: xw-example-configmap

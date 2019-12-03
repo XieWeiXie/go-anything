@@ -1,0 +1,21 @@
+apiVersion: settings.k8s.io/v1alpha1
+kind: PodPreset
+metadata:
+  name: xw-example-etcd-podpreset
+  labels:
+    app: xw-example-ectd-podpreset
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      role: etcd
+  env:
+      - name: HOST_1
+        value: $(etcd.ETCD_HOST_1)
+      - name: HOST_2
+        value: $(etcd.ETCD_HOST_2)
+      - name: HOST_3
+        value: $(etcd.ETCD_HOST_3)
+  envFrom:
+    - configMapRef:
+        name: xw-example-configmap

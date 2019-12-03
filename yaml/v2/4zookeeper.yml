@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-zookeeper-1-deploymet
+  labels:
+    app: xw-example-zookeeper-1-deployment
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-zookeeper-1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-zookeeper-1
+        role: zookeeper
+    spec:
+      containers:
+        - image: wurstmeister/zookeeper
+          imagePullPolicy: IfNotPresent
+          name: zookeeper-cluster-1
+          ports:
+            - containerPort: 2181
+            - containerPort: 2888
+            - containerPort: 3888
+          env:
+            - name: ZOO_MY_ID
+              value: "1"
+            - name: ZOO_SERVERS
+              value: "server.1=0.0.0.0:2888:3888 server.2=xw-example-zookeeper-2-service.xw-example.svc.cluster.local:2888:3888 server.3=xw-example-zookeeper-3-service.xw-example.svc.cluster.local:2888:3888"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-zookeeper-2-deploymet
+  labels:
+    app: xw-example-zookeeper-2-deployment
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-zookeeper-2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-zookeeper-2
+        role: zookeeper
+    spec:
+      containers:
+        - image: wurstmeister/zookeeper
+          imagePullPolicy: IfNotPresent
+          name: zookeeper-cluster-2
+          ports:
+            - containerPort: 2181
+            - containerPort: 2888
+            - containerPort: 3888
+          env:
+            - name: ZOO_MY_ID
+              value: "2"
+            - name: ZOO_SERVERS
+              value: "server.1=xw-example-zookeeper-1-service.xw-example.svc.cluster.local:2888:3888 server.2=0.0.0.0:2888:3888 server.3=xw-example-zookeeper-3-service.xw-example.svc.cluster.local:2888:3888"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-zookeeper-3-deploymet
+  labels:
+    app: xw-example-zookeeper-3-deployment
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-zookeeper-3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-zookeeper-3
+        role: zookeeper
+    spec:
+      containers:
+        - image: wurstmeister/zookeeper
+          imagePullPolicy: IfNotPresent
+          name: zookeeper-cluster-2
+          ports:
+            - containerPort: 2181
+            - containerPort: 2888
+            - containerPort: 3888
+          env:
+            - name: ZOO_MY_ID
+              value: "3"
+            - name: ZOO_SERVERS
+              value: "server.1=xw-example-zookeeper-1-service.xw-example.svc.cluster.local:2888:3888 server.2=xw-example-zookeeper-2-service.xw-example.svc.cluster.local:2888:3888 server.3=0.0.0.0:2888:3888"

@@ -1,0 +1,21 @@
+apiVersion: settings.k8s.io/v1alpha1
+kind: PodPreset
+metadata:
+  name: xw-example-mysql-podpreset
+  labels:
+    app: xw-example-mysql-podpreset
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      role: mysql
+  envFrom:
+    - configMapRef:
+        name: xw-example-configmap
+  env:
+    - name: MYSQL_USER
+      value: $(mysql.MYSQL_ROOT)
+    - name: MYSQL_DATABASE
+      value: $(mysql.MYSQL_DATABASE)
+    - name: MYSQL_ROOT_PASSWORD
+      value: $(mysql.MYSQL_ROOT_PASSWORD)

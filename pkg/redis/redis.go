@@ -46,10 +46,8 @@ func RedisInit() {
 		setting.host = os.Getenv(configs.REDIS_HOST)
 
 	}
-	//setting.host = "119.3.198.221"
 	if os.Getenv(configs.REDIS_PORT) != "" {
 		setting.port = os.Getenv(configs.REDIS_PORT)
-		setting.port = "31767"
 	}
 	addr = fmt.Sprintf("%s:%s", setting.host, setting.port)
 	auth = setting.auth

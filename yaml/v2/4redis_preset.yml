@@ -1,0 +1,17 @@
+apiVersion: settings.k8s.io/v1alpha1
+kind: PodPreset
+metadata:
+  name: xw-example-redis-podpreset
+  labels:
+    app: xw-example-redis-podpreset
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      role: redis
+  envFrom:
+    - configMapRef:
+        name: xw-example-configmap
+  env:
+    - name: REDIS_AUTH
+      value: $(redis.REDIS_AUTH)

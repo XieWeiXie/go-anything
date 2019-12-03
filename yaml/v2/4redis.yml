@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-redis-deployment
+  labels:
+    app: xw-example-redis-deployment
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-redis
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-redis
+        role: redis
+    spec:
+      containers:
+        - name: redis
+          imagePullPolicy: IfNotPresent
+          image: redis
+          ports:
+            - containerPort: 6379
+          envFrom:
+            - configMapRef:
+                name: xw-example-configmap
+          env:
+            - name: REDIS_AUTH
+              value: $(redis.REDIS_AUTH)
+          command:
+            - redis-server
+            - --appendonly yes
+            - --requirepass
+          args:
+            - "$(REDIS_AUTH)"

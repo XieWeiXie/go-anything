@@ -1,0 +1,152 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-etcd-1-deployment
+  namespace: xw-example
+  labels:
+    app: xw-example-etcd-1-deployment
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-etcd-1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-ectd-1
+        role: etcd
+    spec:
+      containers:
+        - name: etcd-1
+          image: quay.io/coreos/etcd:v3.3.18
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 2379
+            - containerPort: 2380
+          envFrom:
+            - configMapRef:
+                name: xw-example-configmap
+          env:
+            - name: HOST_1
+              value: $(etcd.ETCD_HOST_1)
+            - name: HOST_2
+              value: $(etcd.ETCD_HOST_2)
+            - name: HOST_3
+              value: $(etcd.ETCD_HOST_3)
+          command:
+            - /usr/local/bin/etcd
+            - -name etcd1
+            - -data-dir=/etcd-data
+            - -advertise-client-urls http://"$(HOST_1)":2379
+            - -initial-advertise-peer-urls http://"$(HOST_1)":2380
+            - -listen-client-urls http://0.0.0.0:2379
+            - -listen-peer-urls http://0.0.0.0:2380
+            - -initial-cluster-token etcd-cluster
+            - -initial-cluster etcd1=http://"$(HOST_1)":2380,etcd2=http://"$(HOST_2)":2380,etcd3=http://"$(HOST_3)":2380
+            - -initial-cluster-state new
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-etcd-2-deployment
+  namespace: xw-example
+  labels:
+    app: xw-example-etcd-2-deployment
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-etcd-2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-ectd-2
+        role: etcd
+    spec:
+      containers:
+        - name: etcd-2
+          image: quay.io/coreos/etcd:v3.3.18
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 2379
+            - containerPort: 2380
+          envFrom:
+            - configMapRef:
+                name: xw-example-configmap
+          env:
+            - name: HOST_1
+              value: $(etcd.ETCD_HOST_1)
+            - name: HOST_2
+              value: $(etcd.ETCD_HOST_2)
+            - name: HOST_3
+              value: $(etcd.ETCD_HOST_3)
+          command:
+            - /usr/local/bin/etcd
+            - -name etcd2
+            - -data-dir=/etcd-data
+            - -advertise-client-urls http://"$(HOST_2)":2379
+            - -initial-advertise-peer-urls http://"$(HOST_2)":2380
+            - -listen-client-urls http://0.0.0.0:2379
+            - -listen-peer-urls http://0.0.0.0:2380
+            - -initial-cluster-token etcd-cluster
+            - -initial-cluster etcd1=http://"$(HOST_1)":2380,etcd2=http://"$(HOST_2)":2380,etcd3=http://"$(HOST_3)":2380
+            - -initial-cluster-state new
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-etcd-3-deployment
+  namespace: xw-example
+  labels:
+    app: xw-example-etcd-3-deployment
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-etcd-3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-ectd-3
+        role: etcd
+    spec:
+      containers:
+        - name: etcd-3
+          image: quay.io/coreos/etcd:v3.3.18
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 2379
+            - containerPort: 2380
+          envFrom:
+            - configMapRef:
+                name: xw-example-configmap
+          env:
+            - name: HOST_1
+              value: $(etcd.ETCD_HOST_1)
+            - name: HOST_2
+              value: $(etcd.ETCD_HOST_2)
+            - name: HOST_3
+              value: $(etcd.ETCD_HOST_3)
+          command:
+            - /usr/local/bin/etcd
+            - -name etcd3
+            - -data-dir=/etcd-data
+            - -advertise-client-urls http://"$(HOST_3)":2379
+            - -initial-advertise-peer-urls http://"$(HOST_3)":2380
+            - -listen-client-urls http://0.0.0.0:2379
+            - -listen-peer-urls http://0.0.0.0:2380
+            - -initial-cluster-token etcd-cluster
+            - -initial-cluster etcd1=http://"$(HOST_1)":2380,etcd2=http://"$(HOST_2)":2380,etcd3=http://"$(HOST_3)":2380
+            - -initial-cluster-state new

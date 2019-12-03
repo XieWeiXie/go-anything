@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xw-example-configmap
+  labels:
+    app: xw-example-configmap
+  namespace: xw-example
+data:
+  # Mysql
+  mysql.MYSQL_ROOT: "root"
+  mysql.MYSQL_DATABASE: "go-anything"
+  mysql.MYSQL_ROOT_PASSWORD: "adminMysql"
+  mysql.MYSQL_HOST: "xw-example-mysql-service.xw-example.svc.cluster.local"
+  mysql.MYSQL_PORT: "3306"
+  # redis
+  redis.REDIS_AUTH: "adminRedis"
+  redis.REDIS_HOST: "xw-example-redis-service.xw-example.svc.cluster.local"
+  redis.REDIS_PORT: "6379"
+  # zookeeper
+  zookeeper.ZOOKEEPER_HOST_1: "xw-example-zookeeper-1-service.xw-example.svc.cluster.local"
+  zookeeper.ZOOKEEPER_HOST_2: "xw-example-zookeeper-2-service.xw-example.svc.cluster.local"
+  zookeeper.ZOOKEEPER_HOST_3: "xw-example-zookeeper-3-service.xw-example.svc.cluster.local"
+  zookeeper.ZOO_ID_1: "1"
+  zookeeper.ZOO_ID_2: "2"
+  zookeeper.ZOO_ID_3: "3"
+  # kafka
+  kafka.KAFKA_HOST_1: "PLAINTEXT://xw-example-kafka-1-service.xw-example.svc.cluster.local:9092"
+  kafka.KAFKA_HOST_2: "PLAINTEXT://xw-example-kafka-2-service.xw-example.svc.cluster.local:9092"
+  kafka.KAFKA_HOST_3: "PLAINTEXT://xw-example-kafka-3-service.xw-example.svc.cluster.local:9092"
+  kafka.KAFKA_CPU_LIMIT: "1024m"
+  kafka.KAFKA_CPU_REQUEST: "500m"
+  kafka.KAFKA_MEMORY_LIMIT: "2048Mi"
+  kafka.KAFKA_MEMORY_REQUEST: "1024Mi"
+  kafka.KAFKA_PORT: "9092"
+  kafka.KAFKA_ADVERTISED_PORT: "9092"
+  kafka.KAFKA_LISTENERS: "PLAINTEXT://:9092"
+  kafka.KAFKA_ZOOKEEPER_CONNECT: "xw-example-zookeeper-1-service.xw-example.svc.cluster.local:2181,xw-example-zookeeper-2-service.xw-example.svc.cluster.local:2181,xw-example-zookeeper-3-service.xw-example.svc.cluster.local:2181"
+  kafka.KAFKA_BROKER_LIST: "xw-example-kafka-1-service.xw-example.svc.cluster.local:9092"
+  # etcd
+  etcd.ETCD_HOST_1: "xw-example-etcd-1-service.xw-example.svc.cluster.local"
+  etcd.ETCD_HOST_2: "xw-example-etcd-2-service.xw-example.svc.cluster.local"
+  etcd.ETCD_HOST_3: "xw-example-etcd-3-service.xw-example.svc.cluster.local"

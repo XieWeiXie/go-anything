@@ -1,0 +1,24 @@
+apiVersion: settings.k8s.io/v1alpha1
+kind: PodPreset
+metadata:
+  name: xw-example-go-anything-preset
+  labels:
+    app: xw-example-go-anything-preset
+spec:
+  selector:
+    matchLabels:
+      role: go-anything
+  envFrom:
+    - configMapRef:
+        name: xw-example-configmap
+  env:
+    - name: MYSQL_HOST
+      value: $(mysql.MYSQL_HOST)
+    - name: MYSQL_PORT
+      value: $(mysql.MYSQL_PORT）
+    - name: REDIS_HOST
+      value: $(redis.REDIS_HOST)
+    - name: REDIS_PORT
+      value: $(redis.REDIS_PORT)
+    - name: KAFKA_BROKER_LIST
+      value: $(kafka.KAFKA_BROKER_LIST)

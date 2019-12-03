@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-mysql-deployment
+  labels:
+    app: xw-example-mysql-deployment
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-mysql
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-mysql
+        role: mysql
+    spec:
+      containers:
+        - name: xw-example-mysql
+          image: mysql
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306
+          envFrom:
+            - configMapRef:
+                name: xw-example-configmap
+          env:
+            - name: MYSQL_USER
+              value: $(mysql.MYSQL_ROOT)
+            - name: MYSQL_DATABASE
+              value: $(mysql.MYSQL_DATABASE)
+            - name: MYSQL_ROOT_PASSWORD
+              value: $(mysql.MYSQL_ROOT_PASSWORD)

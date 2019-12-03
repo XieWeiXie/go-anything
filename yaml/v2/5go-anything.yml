@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xw-example-go-anything-deployment
+  labels:
+    app: xw-example-go-anything-deployment
+  namespace: xw-example
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-go-anything
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: xw-example-go-anything
+        role: go-anything
+    spec:
+      containers:
+        - name: go-anything
+          imagePullPolicy: IfNotPresent
+          image: 100.125.0.198:20202/wuxiaoshen/go-anything:v0.19
+          ports:
+            - containerPort: 8888
+          envFrom:
+            - configMapRef:
+                name: xw-example-configmap
+          env:
+            - name: MYSQL_HOST
+              value: $(mysql.MYSQL_HOST)
+            - name: MYSQL_PORT
+              value: $(mysql.MYSQL_PORT)
+            - name: REDIS_HOST
+              value: $(redis.REDIS_HOST)
+            - name: REDIS_PORT
+              value: $(redis.REDIS_PORT)
+            - name: KAFKA_BROKER_LIST
+              value: $(kafka.KAFKA_BROKER_LIST)
