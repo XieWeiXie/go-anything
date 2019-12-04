@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v2alpha1
 kind: CronJob
 metadata:
   name: xw-example-go-anything-cronjob
@@ -12,10 +12,7 @@ spec:
         spec:
           containers:
             - name: xw-example-go-anything-cronjob
-              image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.20
-              args:
-                - /bin/sh
-                - -c
-                - /go/src/github.com/wuxiaoxiaoshen/go-anything/main.go email
+              image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.21
+              command: ["bash", "-c", "/go/go-anything/go-anything", "email"]
           restartPolicy: OnFailure
-  schedule: "30 14 * * *"
+  schedule: "*/1 * * * *"

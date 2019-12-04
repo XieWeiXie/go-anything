@@ -10,9 +10,9 @@ spec:
     spec:
       containers:
         - name: xw-example-db-job
-          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.20
+          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.21
           imagePullPolicy: IfNotPresent
-          command: ["bash","-c", "/go/src/github.com/wuxiaoxiaoshen/go-anything/go-anything k8s"]
+          command: ["bash","-c", "/go/go-anything/go-anything k8s"]
           envFrom:
             - configMapRef:
                 name: xw-example-configmap

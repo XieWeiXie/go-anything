@@ -18,7 +18,7 @@ import (
 )
 
 var fundURL = "http://push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.000001&fields1=f1,f2,f3,f4,f5&fields2=f51,f52,f53,f54,f55,f56,f57,f58&klt=101&fqt=0&"
-var bingURL = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=%s&n=1"
+var bingURL = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=%d&n=1"
 var EmailCmd = &cobra.Command{
 	Use:   "email",
 	Short: "send info by email",
@@ -29,7 +29,7 @@ var EmailCmd = &cobra.Command{
 		now := time.Now()
 		fundURL = fmt.Sprintf(fundURL+"beg=%s&end=%s", "20190101", now.Format("20060102"))
 		log.Println("Step 2: Fund url init ...", fundURL)
-		bingURL = fmt.Sprintf(bingURL, "0")
+		bingURL = fmt.Sprintf(bingURL, 0)
 		log.Println("Step 3: Bing url init ...", bingURL)
 	},
 	Run: func(cmd *cobra.Command, args []string) {
@@ -94,12 +94,14 @@ func fund() fundData {
 }
 func bing() string {
 	// 9:00
+	log.Println("bingURL",bingURL)
 	data := chromedp_helper.GetPageSourceHTTP(bingURL)
 	list := gjson.Parse(data).Get("images").Array()
 	if len(list) <= 0 {
 		return "-1"
 	}
 	images := list[0]
+	log.Println("images", images)
 	url := fmt.Sprintf("%s%s", "https://cn.bing.com", strings.TrimSpace(images.Get("url").String()))
 	return url
 }

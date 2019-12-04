@@ -24,7 +24,7 @@ spec:
       containers:
         - name: go-anything
           imagePullPolicy: IfNotPresent
-          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.20
+          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.21
           ports:
             - containerPort: 8888
           envFrom:
@@ -41,3 +41,7 @@ spec:
               value: $(redis.REDIS_PORT)
             - name: KAFKA_BROKER_LIST
               value: $(kafka.KAFKA_BROKER_LIST)
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1024Mi"
