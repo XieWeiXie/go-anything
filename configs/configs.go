@@ -20,7 +20,7 @@ var (
 )
 
 func init() {
-	rootPathForConfig = "$GOPATH/src/github.com/wuxiaoxiaoshen/go-anything/configs"
+	rootPathForConfig = "./configs"
 	DefaultConfigs = newGoAnythingConfig()
 }
 
