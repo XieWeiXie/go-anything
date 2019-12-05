@@ -37,9 +37,10 @@
 - docker / docker-compose
 - go / iris
 - k8s
-
+- etcd
+- kafka
 
 ## CHANGELOG
 
-
-- docker-compose 版本：v2.0
+- k8s 调度脚本：yaml : 使用 kubectl 启动服务
+- docker-compose 版本：v2.0:  本地环境一键启动服务

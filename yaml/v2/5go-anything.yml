@@ -21,6 +21,8 @@ spec:
         app: xw-example-go-anything
         role: go-anything
     spec:
+      hostname: go-anything
+      subdomain: go-anything-default-subdomain
       containers:
         - name: go-anything
           imagePullPolicy: IfNotPresent

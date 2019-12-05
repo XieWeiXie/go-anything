@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: xw-example-go-anything-service
+  namespace: xw-example
+  labels:
+    app: xw-example-go-anything-service-externalname
+spec:
+  type: ExternalName
+  externalName: my.go-anything.com
+  clusterIP: ""
