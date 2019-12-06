@@ -42,5 +42,6 @@
 
 ## CHANGELOG
 
+- githubAction: 自动编译，自动构建镜像推送至 Docker Hub
 - k8s 调度脚本：yaml : 使用 kubectl 启动服务
 - docker-compose 版本：v2.0:  本地环境一键启动服务
