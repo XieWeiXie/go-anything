@@ -1,14 +1,16 @@
 name: Docker Image CI
-
 on: [push]
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
+    - name: Docker Login
+      run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag go-anything:$(date +%s)
+      run: docker build . --file Dockerfile --tag wuxiaoshen/go-anything:v-$(date +%s)
+    - name: Docker Push
+      run: docker push wuxiaoshen/go-anything:v-$(date +%s)
+    - name: Echo Images
+      run: docker images
+

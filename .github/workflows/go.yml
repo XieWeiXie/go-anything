@@ -23,6 +23,9 @@ jobs:
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         fi
-
     - name: Build
-      run: go build -v .
+      run: go build -v -o go-anything main.go
+    - name: Make Prod
+      run: make prod
+    - name: Email
+      run: ./go-anything email
