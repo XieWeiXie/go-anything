@@ -17,11 +17,10 @@ service:
     topic: go-anything
     consumerGroup: go-anything-consumer-group
   email:
-    sender: "xiewei@tkzc31.onexmail.com"
-    auth: "TWVuZzE5OTMwNzE5Cg=="
+    sender: "1156143589@qq.com"
+    auth: "bWVuZ3d1MTliYW5nNTg1MjA="
     receivers:
-      - "1156143589@qq.com"
-      - "1344439822@qq.com"
+      - "xiewei@tkzc31.onexmail.com"
 dev:
   mysql:
     port: "3306"
