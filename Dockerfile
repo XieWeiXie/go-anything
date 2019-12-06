@@ -10,7 +10,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;\
     dpkg-reconfigure -f noninteractive tzdata
 
 WORKDIR /go/go-anything
-RUN echo $PWD
+RUN echo $PWD ;\
+    mkdir -p /go/go-anything
 COPY . /go/go-anything
 
 RUN apt-get update && apt-get install -q -y vim nginx  git openssh-client cron && apt-get clean;\

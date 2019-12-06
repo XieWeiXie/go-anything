@@ -21,16 +21,14 @@ spec:
         app: xw-example-go-anything
         role: go-anything
     spec:
-      hostname: go-anything
-      subdomain: go-anything-default-subdomain
       containers:
         - name: go-anything
           imagePullPolicy: IfNotPresent
-          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.21
+          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.22
           ports:
             - containerPort: 8888
           volumeMounts:
-            - mountPath: /go/go-anything
+            - mountPath: "/go/go-anything"
               name: go-anything-deployment-volume
           envFrom:
             - configMapRef:
@@ -46,14 +44,14 @@ spec:
               value: $(redis.REDIS_PORT)
             - name: KAFKA_BROKER_LIST
               value: $(kafka.KAFKA_BROKER_LIST)
-            - name: METADATA_LABLES_APP
+            - name: METADATA_NAME
               valueFrom:
                 fieldRef:
-                  fieldPath: metadata.labels.app
-            - name: METADATA_LABELS_ROLE
+                  fieldPath: metadata.name
+            - name: METADATA_POD_IP
               valueFrom:
                 fieldRef:
-                  fieldPath: metadata.lables.role
+                  fieldPath: status.podIP
             - name: RESOURCE_LIMITS_CPU
               valueFrom:
                 resourceFieldRef:
@@ -68,19 +66,6 @@ spec:
             limits:
               cpu: "1"
               memory: "1024Mi"
-          # HOOKS
-          # 生命周期
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - echo
-                  - "Hello World Go-Anything!"
-            preStop:
-              exec:
-                command:
-                  - echo
-                  - "Hello End Go-Anything!"
           # PROBE
           # 存活
           livenessProbe:
@@ -101,4 +86,4 @@ spec:
       volumes:
         - name: go-anything-deployment-volume
           hostPath:
-            path: .xw/deployment
+            path: /xw/deployment
