@@ -1,18 +1,18 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: xw-example-db-job
+  name: xw-example-db-job-2
   labels:
-    app: xw-example-db-job
+    app: xw-example-db-job-2
   namespace: xw-example
 spec:
   template:
     spec:
       containers:
-        - name: xw-example-db-job
+        - name: xw-example-db-job-2
           image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.22
           imagePullPolicy: IfNotPresent
-          command: ["bash","-c", "/go/go-anything/go-anything k8s"]
+          command: ["bash","-c", "/go/go-anything/go-anything email"]
           envFrom:
             - configMapRef:
                 name: xw-example-configmap

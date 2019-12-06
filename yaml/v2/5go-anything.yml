@@ -29,6 +29,9 @@ spec:
           image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.21
           ports:
             - containerPort: 8888
+          volumeMounts:
+            - mountPath: /go/go-anything
+              name: go-anything-deployment-volume
           envFrom:
             - configMapRef:
                 name: xw-example-configmap
@@ -43,7 +46,59 @@ spec:
               value: $(redis.REDIS_PORT)
             - name: KAFKA_BROKER_LIST
               value: $(kafka.KAFKA_BROKER_LIST)
+            - name: METADATA_LABLES_APP
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels.app
+            - name: METADATA_LABELS_ROLE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.lables.role
+            - name: RESOURCE_LIMITS_CPU
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.cpu
+                  containerName: go-anything
+            - name: RESOURCE_LIMITS_MEMORY
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.memory
+                  containerName: go-anything
           resources:
             limits:
               cpu: "1"
               memory: "1024Mi"
+          # HOOKS
+          # 生命周期
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - echo
+                  - "Hello World Go-Anything!"
+            preStop:
+              exec:
+                command:
+                  - echo
+                  - "Hello End Go-Anything!"
+          # PROBE
+          # 存活
+          livenessProbe:
+            httpGet:
+              path: /v1/api/status
+              port: 8888
+            initialDelaySeconds: 20
+            timeoutSeconds: 20
+            periodSeconds: 60
+          # 准备就绪
+          readinessProbe:
+            httpGet:
+              port: 8888
+              path: /v1/api/status
+            periodSeconds: 300
+            initialDelaySeconds: 60
+            timeoutSeconds: 20
+      volumes:
+        - name: go-anything-deployment-volume
+          hostPath:
+            path: .xw/deployment

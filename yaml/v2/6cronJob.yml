@@ -12,7 +12,23 @@ spec:
         spec:
           containers:
             - name: xw-example-go-anything-cronjob
-              image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.21
-              command: ["bash", "-c", "/go/go-anything/go-anything", "email"]
+              image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.22
+              command: ["bash","-c", "/go/go-anything/go-anything email"]
+              ports:
+                - containerPort: 8888
+              envFrom:
+                - configMapRef:
+                    name: xw-example-configmap
+              env:
+                - name: MYSQL_HOST
+                  value: $(mysql.MYSQL_HOST)
+                - name: MYSQL_PORT
+                  value: $(mysql.MYSQL_PORT)
+                - name: REDIS_HOST
+                  value: $(redis.REDIS_HOST)
+                - name: REDIS_PORT
+                  value: $(redis.REDIS_PORT)
+                - name: KAFKA_BROKER_LIST
+                  value: $(kafka.KAFKA_BROKER_LIST)
           restartPolicy: OnFailure
-  schedule: "*/1 * * * *"
+  schedule: "45 14 * * *"

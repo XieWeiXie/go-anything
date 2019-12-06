@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: xw-example
+  labels:
+    app: xw-example-stateful-go-anything
+    name: xw-example-stateful-go-anything
+  name: xw-example-stateful-go-anything
+spec:
+  selector:
+    matchLabels:
+      app: xw-example-go-anything-statefulset
+  serviceName: xw-example-go-anything-service-statefulset
+  replicas: 3
+  revisionHistoryLimit: 10
+  template:
+    metadata:
+      labels:
+        app: xw-example-go-anything-statefulset
+    spec:
+      containers:
+        - name: xw-example-go-anything-statefulset
+          imagePullPolicy: IfNotPresent
+          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.22
+          ports:
+            - containerPort: 8888
+          volumeMounts:
+            - mountPath: /go/go-anything
+              name: xw-example-go-anything-statefulset-volume
+      volumes:
+        - name: xw-example-go-anything-statefulset-volume
+          persistentVolumeClaim:
+            claimName: xw-example-pvc-go-anything

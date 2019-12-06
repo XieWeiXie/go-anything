@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: xw-example
+  name: xw-example-pvc-go-anything
+  labels:
+    app: xw-example-pvc-go-anything
+    name: xw-example-pvc-go-anything
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: manual
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: xw-example
+  name: xw-example-pv-go-anything
+  labels:
+    app: xw-example-pv-go-anything
+    name: xw-example-pv-go-anything
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: .xw/statefulset
+  storageClassName: manual
