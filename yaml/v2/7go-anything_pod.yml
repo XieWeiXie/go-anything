@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: xw-example-pod
+  namespace: xw-example
+  labels:
+    app: xw-example-pod
+    name: xw-example-pod
+spec:
+  initContainers:
+    - name: xw-example-go-anything-pod-init
+      image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.23
+      imagePullPolicy: IfNotPresent
+      command: ["cp", "/go/go-anything", "/app"]
+      volumeMounts:
+        - mountPath: /app
+          name: xw-example-go-anything-volume
+  containers:
+    - name: xw-example-go-anything-pod
+      image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.23
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8888
+      volumeMounts:
+        - mountPath: /go/go-anything
+          name: xw-example-go-anything-volume
+  volumes:
+    - name: xw-example-go-anything-volume
+      emptyDir:
+        {}

@@ -24,12 +24,12 @@ spec:
       containers:
         - name: go-anything
           imagePullPolicy: IfNotPresent
-          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.22
+          image: swr.cn-north-1.myhuaweicloud.com/wuxiaoshen/go-anything:v0.23
           ports:
             - containerPort: 8888
-          volumeMounts:
-            - mountPath: "/go/go-anything"
-              name: go-anything-deployment-volume
+#          volumeMounts:
+#            - mountPath: "./"
+#              name: go-anything-deployment-volume
           envFrom:
             - configMapRef:
                 name: xw-example-configmap
@@ -70,20 +70,20 @@ spec:
           # 存活
           livenessProbe:
             httpGet:
-              path: /v1/api/status
+              path: /v1/api/status/health
               port: 8888
             initialDelaySeconds: 20
-            timeoutSeconds: 20
+            timeoutSeconds: 5
             periodSeconds: 60
           # 准备就绪
           readinessProbe:
             httpGet:
               port: 8888
-              path: /v1/api/status
-            periodSeconds: 300
-            initialDelaySeconds: 60
-            timeoutSeconds: 20
-      volumes:
-        - name: go-anything-deployment-volume
-          hostPath:
-            path: /xw/deployment
+              path: /v1/api/tt/global
+            periodSeconds: 120
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+#      volumes:
+#        - name: go-anything-deployment-volume
+#          hostPath:
+#            path: /xw/deployment
