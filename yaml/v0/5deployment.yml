@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-example-deployment
+  labels:
+    app: k8s-example-deployment
+    name: k8s-example-deployment
+  namespace: k8s-example
+spec:
+  selector:
+    matchLabels:
+      app: k8s-example-nginx-deployment-pod
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: k8s-example-nginx-deployment-pod
+    spec:
+      containers:
+        - name: k8s-example-nginx-deployment-pod
+          imagePullPolicy: IfNotPresent
+          image: nginx
+          ports:
+            - containerPort: 80
+

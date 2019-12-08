@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: k8s-example
+  name: k8s-example-nginx-service
+  labels:
+    app: k8s-example-nginx-service
+spec:
+  selector:
+    app: k8s-example-pod
+  ports:
+    - port: 80
+      targetPort: 80
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: k8s-example
+  name: k8s-example-replicaset-service
+  labels:
+    app: k8s-example-replicaset-service
+spec:
+  selector:
+    app: k8s-example-nginx-pod
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31234
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-example-deployment-service
+  labels:
+    app: k8s-example-deployment-service
+  namespace: k8s-example
+spec:
+  selector:
+    app: k8s-example-nginx-deployment-pod
+  clusterIP: None
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-example-mysql-service
+  labels:
+    app: k8s-example-mysql-service
+    name: k8s-example-mysql-service
+  namespace: k8s-example
+spec:
+  selector:
+    app: k8s-example-mysql-pod-with-setting
+  type: NodePort
+  ports:
+    - port: 3306
+      targetPort: 3306
+      nodePort: 32345

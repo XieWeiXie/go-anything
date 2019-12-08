@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: k8s-example
+  name: k8s-example-configmap
+  labels:
+    app: k8s-example-configmap
+    name: k8s-example-configmap
+data:
+  mysql.Database: "root"
+  mysql.User: "k8s-example"
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: k8s-example-secret
+  labels:
+    app: k8s-example-secret
+  namespace: k8s-example
+data:
+  mysql.Port: "MzMwNg=="
+  mysql.Password: "cm9vdA=="

@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-example-deployment-with-setting
+  labels:
+    app: k8s-example-deployment-with-setting
+    name: k8s-example-deployment-with-setting
+  namespace: k8s-example
+spec:
+  selector:
+    matchLabels:
+      app: k8s-example-mysql-pod-with-setting
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: k8s-example-mysql-pod-with-setting
+    spec:
+      containers:
+        - name: k8s-example-mysql-pod-with-setting
+          image: mysql
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1024Mi"
+            requests:
+              cpu: "0.5"
+              memory: "500Mi"
+          envFrom:
+            - configMapRef:
+                name: k8s-example-configmap
+            - secretRef:
+                name: k8s-example-secret
+          env:
+            - name: MYSQL_DEPLOYMENT
+              value: "k8s-example"
+            - name: MYSQL_USER
+              value: $(mysql.User)
+            - name: MYSQL_DATABASE
+              value: $(mysql.Database)
+            - name: MYSQL_ROOT_PASSWORD
+              value: $(mysql.Password)
+            - name: METADATA_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: RESOURCE
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.cpu
+
+

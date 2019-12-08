@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  namespace: k8s-example
+  labels:
+    app: k8s-example-replicaset
+    name: k8s-example-replicaset
+  name: k8s-example-replicaset
+spec:
+  selector:
+    matchLabels:
+      app: k8s-example-nginx-pod
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: k8s-example-nginx-pod
+    spec:
+      containers:
+        - name: k8s-example-nginx-pod
+          image: nginx
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
