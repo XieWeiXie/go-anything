@@ -7,7 +7,7 @@ services:
       - 6379:6379
     expose:
       - 6379
-    container_name: redis_for_go_anything
+    container_name: redis_01
     command: redis-server --appendonly yes --requirepass "adminRedis"
     networks:
       - go-anything-network
@@ -15,7 +15,7 @@ services:
       - data:/data
   mysql:
     image: mysql:latest
-    container_name: mysql_for_go_anything
+    container_name: mysql_01
     networks:
       - go-anything-network
     command: --default-authentication-plugin=mysql_native_password
@@ -27,7 +27,7 @@ services:
       - 3306:3306
   kafka:
     image: index.docker.io/wurstmeister/kafka:latest
-    container_name: kafka_for_go_anything
+    container_name: kafka_01
     ports:
       - 9092:9092
     environment:
@@ -45,7 +45,7 @@ services:
       - data:/kafka/kafka-logs
   zookeeper:
     image: index.docker.io/wurstmeister/zookeeper:latest
-    container_name: zookeeper_for_go_anything
+    container_name: zookeeper_01
     ports:
       - 2181:2181
     networks:
@@ -107,7 +107,98 @@ services:
       -initial-cluster-token etcd-cluster
       -initial-cluster etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380
       -initial-cluster-state new
-
+  cerebro:
+    image: lmenezes/cerebro:0.8.3
+    container_name: cerebro_01
+    ports:
+      - "9000:9000"
+    command:
+      - -Dhosts.0.host=http://elasticsearch:9200
+    networks:
+      - go-anything-network
+    depends_on:
+      - elasticsearch
+      - elasticsearch2
+      - elasticsearch3
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.5.0
+    container_name: kibana_01
+    environment:
+      - "I18N_LOCALE=zh-CN"
+      - "XPACK_GRAPH_ENABLED=true"
+      - "TIMELION_ENABLED=true"
+      - "XPACK_MONITORING_COLLECTION_ENABLED=true"
+    ports:
+      - "5601:5601"
+    networks:
+      - go-anything-network
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.5.0
+    container_name: logstash_01
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    networks:
+      - go-anything-network
+    depends_on:
+      - elasticsearch
+      - elasticsearch2
+      - elasticsearch3
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    container_name: es_01
+    environment:
+      - "http.host=0.0.0.0"
+      - "cluster.name=es-clustername"
+      - "node.name=es_01"
+      - "bootstrap.memory_lock=true"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es_01,es_02,es_03"
+      - "cluster.initial_master_nodes=es_01,es_02,es_03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+    networks:
+      - go-anything-network
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    container_name: es_02
+    environment:
+      - "http.host=0.0.0.0"
+      - "cluster.name=es-clustername"
+      - "node.name=es_02"
+      - "bootstrap.memory_lock=true"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es_01,es_02,es_03"
+      - "cluster.initial_master_nodes=es_01,es_02,es_03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - go-anything-network
+  elasticsearch3:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    container_name: es_03
+    environment:
+      - "http.host=0.0.0.0"
+      - "cluster.name=es-clustername"
+      - "node.name=es_03"
+      - "bootstrap.memory_lock=true"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es_01,es_02,es_03"
+      - "cluster.initial_master_nodes=es_01,es_02,es_03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - go-anything-network
 networks:
   go-anything-network:
     driver: bridge

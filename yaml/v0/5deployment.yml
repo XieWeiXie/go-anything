@@ -22,4 +22,18 @@ spec:
           image: nginx
           ports:
             - containerPort: 80
+          lifecycle:
+            postStart:
+              exec:
+                command: ["bash", "-c", "echo hello world"]
+            preStop:
+              exec:
+                command: ["bash", "-c", "echo hello end"]
+          volumeMounts:
+            - mountPath: /tmp
+              name: nginx-pod
+      volumes:
+        - name: nginx-pod
+          emptyDir:
+            {}
 

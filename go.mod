@@ -8,6 +8,7 @@ require (
 	github.com/Shopify/sarama v1.24.1
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/chromedp/chromedp v0.5.2
+	github.com/elastic/go-elasticsearch/v7 v7.5.0
 	github.com/fasthttp-contrib/websocket v0.0.0-20160511215533-1f3b11f56072 // indirect
 	github.com/go-gomail/gomail v0.0.0-20160411212932-81ebce5c23df
 	github.com/gomodule/redigo v2.0.0+incompatible

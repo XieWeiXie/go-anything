@@ -25,7 +25,7 @@ var EmailCmd = &cobra.Command{
 	Long:  "send info by email",
 	PreRun: func(cmd *cobra.Command, args []string) {
 		log.Println("Step 1: Email init ...")
-		email_operate.EmailInit()
+		email_operator.EmailInit()
 		now := time.Now()
 		fundURL = fmt.Sprintf(fundURL+"beg=%s&end=%s", "20190101", now.Format("20060102"))
 		log.Println("Step 2: Fund url init ...", fundURL)
@@ -41,7 +41,7 @@ var EmailCmd = &cobra.Command{
 	},
 	PostRun: func(cmd *cobra.Command, args []string) {
 		log.Println("End 1: Email end ...")
-		email_operate.DefaultEmailAction.Close()
+		email_operator.DefaultEmailAction.Close()
 	},
 }
 
@@ -94,7 +94,7 @@ func fund() fundData {
 }
 func bing() string {
 	// 9:00
-	log.Println("bingURL",bingURL)
+	log.Println("bingURL", bingURL)
 	data := chromedp_helper.GetPageSourceHTTP(bingURL)
 	list := gjson.Parse(data).Get("images").Array()
 	if len(list) <= 0 {
@@ -122,8 +122,8 @@ func send() {
 		return
 	}
 	fmt.Println(byt.String())
-	email_operate.DefaultEmailAction.AddContent(byt.String())
-	email_operate.DefaultEmailAction.Run("今日上证指数行情 || 今日壁纸")
+	email_operator.DefaultEmailAction.AddContent(byt.String())
+	email_operator.DefaultEmailAction.Run("今日上证指数行情 || 今日壁纸")
 
 }
 

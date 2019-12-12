@@ -17,3 +17,11 @@ var (
 var (
 	KAFKA_BROKER_LIST = "KAFKA_BROKER_LIST"
 )
+
+// ElasticSearch
+
+var (
+	ES_ADDRESS  = "ES_ADDRESS"
+	ES_USER     = "ES_USER"
+	ES_PASSWORD = "ES_PASSWORD"
+)

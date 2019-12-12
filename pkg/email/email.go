@@ -1,4 +1,4 @@
-package email_operate
+package email_operator
 
 import (
 	"encoding/base64"

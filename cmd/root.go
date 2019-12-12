@@ -1,13 +1,14 @@
 package cmd
 
 import (
+	"github.com/wuxiaoxiaoshen/go-anything/pkg/es"
 	"log"
 
-	email_operate "github.com/wuxiaoxiaoshen/go-anything/pkg/email"
+	 "github.com/wuxiaoxiaoshen/go-anything/pkg/email"
 
-	kafka_operator "github.com/wuxiaoxiaoshen/go-anything/pkg/kafka"
+	 "github.com/wuxiaoxiaoshen/go-anything/pkg/kafka"
 
-	redis_operator "github.com/wuxiaoxiaoshen/go-anything/pkg/redis"
+	 "github.com/wuxiaoxiaoshen/go-anything/pkg/redis"
 
 	"github.com/wuxiaoxiaoshen/go-anything/pkg/mysql"
 
@@ -25,10 +26,15 @@ var ROOT = &cobra.Command{
 
 		log.Println("Step 2: Redis...")
 		redis_operator.RedisInit()
+
 		log.Println("Step 3: Kafka...")
 		kafka_operator.KafkaInit()
+
 		log.Println("Step 4: Email...")
-		email_operate.EmailInit()
+		email_operator.EmailInit()
+
+		log.Println("Step 5: ElasticSearch...")
+		es_operator.EsInit()
 
 	},
 	Run: func(cmd *cobra.Command, args []string) {
@@ -42,7 +48,9 @@ var ROOT = &cobra.Command{
 		log.Println("End Step 2: Kafka close...")
 		defer kafka_operator.DefaultAsyncProducer.Close()
 		log.Println("End Step 3: Email close...")
-		defer email_operate.DefaultEmailAction.Close()
+		defer email_operator.DefaultEmailAction.Close()
+		log.Println("End Step 4: ElasticSearch close...")
+		defer es_operator.DefaultEsClient.Close()
 	},
 }
 

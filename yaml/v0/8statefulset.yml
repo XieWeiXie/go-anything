@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: k8s-example
+  labels:
+    app: k8s-example-statefulset
+    name: k8s-example-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: k8s-example-statefulset-pod
+  serviceName: ""
+  template:
+    metadata:
+      labels:
+        app: k8s-example-statefulset-pod
+    spec:
+      containers:
+        - name: nginx-statefulset
+          imagePullPolicy: IfNotPresent
+          image: nginx
+          ports:
+            - containerPort: 80

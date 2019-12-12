@@ -1,0 +1,111 @@
+version: "3"
+services:
+  cerebro:
+    image: lmenezes/cerebro:0.8.3
+    container_name: cerebro_01
+    ports:
+      - "9000:9000"
+    command:
+      - -Dhosts.0.host=http://elasticsearch:9200
+    networks:
+      - esnet
+    depends_on:
+      - elasticsearch
+      - elasticsearch2
+      - elasticsearch3
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.5.0
+    container_name: kibana_01
+    environment:
+      - "I18N_LOCALE=zh-CN"
+      - "XPACK_GRAPH_ENABLED=true"
+      - "TIMELION_ENABLED=true"
+      - "XPACK_MONITORING_COLLECTION_ENABLED=true"
+    ports:
+      - "5601:5601"
+    networks:
+      - esnet
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.5.0
+    container_name: logstash_01
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    networks:
+      - esnet
+    depends_on:
+      - elasticsearch
+      - elasticsearch2
+      - elasticsearch3
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    container_name: es_01
+    environment:
+      - "http.host=0.0.0.0"
+      - "cluster.name=es-clustername"
+      - "node.name=es_01"
+      - "bootstrap.memory_lock=true"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es_01,es_02,es_03"
+      - "cluster.initial_master_nodes=es_01,es_02,es_03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - esnet
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    container_name: es_02
+    environment:
+      - "http.host=0.0.0.0"
+      - "cluster.name=es-clustername"
+      - "node.name=es_02"
+      - "bootstrap.memory_lock=true"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es_01,es_02,es_03"
+      - "cluster.initial_master_nodes=es_01,es_02,es_03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata2:/usr/share/elasticsearch/data
+    networks:
+      - esnet
+  elasticsearch3:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    container_name: es_03
+    environment:
+      - "http.host=0.0.0.0"
+      - "cluster.name=es-clustername"
+      - "node.name=es_03"
+      - "bootstrap.memory_lock=true"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.seed_hosts=es_01,es_02,es_03"
+      - "cluster.initial_master_nodes=es_01,es_02,es_03"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata3:/usr/share/elasticsearch/data
+    networks:
+      - esnet
+volumes:
+  esdata1:
+    driver: local
+  esdata2:
+    driver: local
+  esdata3:
+    driver: local
+
+networks:
+  esnet:
+    driver: bridge

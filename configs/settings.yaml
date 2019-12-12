@@ -16,6 +16,10 @@ service:
     broker: kafka:9092
     topic: go-anything
     consumerGroup: go-anything-consumer-group
+  es:
+    address: es:9200
+    user: ""
+    admin: ""
   email:
     sender: "1156143589@qq.com"
     auth: "bWVuZ3d1MTliYW5nNTg1MjA="
@@ -41,3 +45,7 @@ dev:
     auth: "bWVuZ3d1MTliYW5nNTg1MjA="
     receivers:
       - "xiewei@tkzc31.onexmail.com"
+  es:
+    address: "127.0.0.1:9200"
+    user: ""
+    admin: ""
