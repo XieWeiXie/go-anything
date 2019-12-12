@@ -4,11 +4,11 @@ import (
 	"github.com/wuxiaoxiaoshen/go-anything/pkg/es"
 	"log"
 
-	 "github.com/wuxiaoxiaoshen/go-anything/pkg/email"
+	"github.com/wuxiaoxiaoshen/go-anything/pkg/email"
 
-	 "github.com/wuxiaoxiaoshen/go-anything/pkg/kafka"
+	"github.com/wuxiaoxiaoshen/go-anything/pkg/kafka"
 
-	 "github.com/wuxiaoxiaoshen/go-anything/pkg/redis"
+	"github.com/wuxiaoxiaoshen/go-anything/pkg/redis"
 
 	"github.com/wuxiaoxiaoshen/go-anything/pkg/mysql"
 
@@ -62,4 +62,5 @@ func init() {
 	ROOT.AddCommand(ConfigsCmd)
 	ROOT.AddCommand(KubernetesCmd)
 	ROOT.AddCommand(EmailCmd)
+	ROOT.AddCommand(ZhiHuCmd)
 }
