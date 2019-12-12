@@ -44,6 +44,7 @@
 
 ## CHANGELOG
 
+- 增加：docker-compose ci
 - 增加组件：elk
 - githubAction: 自动编译，自动构建镜像推送至 Docker Hub
 - k8s 调度脚本：yaml : 使用 kubectl 启动服务

@@ -1,0 +1,11 @@
+name: Docker Compose CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: docker-compose up
+        run: docker-compose -f docker-compose.yml up -d
+      - name: docker-compose down
+        run: docker-compose -f docker-compose.yml down
