@@ -51,7 +51,7 @@ func EsInit() {
 	e := configs.DefaultConfigs.LoadConfigs("es")
 	a := e.(map[string]interface{})
 	s := esSetting{
-		address:  a["address"].(string),
+		address:  fmt.Sprintf("http://%s", a["address"].(string)),
 		user:     a["user"].(string),
 		password: a["password"].(string),
 	}

@@ -19,7 +19,7 @@ service:
   es:
     address: es:9200
     user: ""
-    admin: ""
+    password: ""
   email:
     sender: "1156143589@qq.com"
     auth: "bWVuZ3d1MTliYW5nNTg1MjA="
@@ -48,4 +48,4 @@ dev:
   es:
     address: "127.0.0.1:9200"
     user: ""
-    admin: ""
+    password: ""

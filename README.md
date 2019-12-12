@@ -4,12 +4,12 @@
         <img src="https://img.shields.io/badge/Author-wuxiaoxiaoshen-green" alt="Author">
     </a>
     <a href="https://github.com/wuxiaoxiaoshen">
-        <img src="https://img.shields.io/badge/progressing-2%25-green" alt="Author">
+        <img src="https://img.shields.io/badge/progressing-5%25-green" alt="Author">
     </a>
 </p>
 
 
-> 万物皆可爬！！！
+> 万物皆可爬
 
 1. 微信平台
 2. 番号查询
@@ -39,9 +39,11 @@
 - k8s
 - etcd
 - kafka
+- elasticSearch
 
 ## CHANGELOG
 
+- 增加组件：elk
 - githubAction: 自动编译，自动构建镜像推送至 Docker Hub
 - k8s 调度脚本：yaml : 使用 kubectl 启动服务
 - docker-compose 版本：v2.0:  本地环境一键启动服务
