@@ -24,7 +24,7 @@ services:
       MYSQL_DATABASE: go-anything
       MYSQL_USER: root
     ports:
-      - 3306:3306
+      - 3307:3306
   kafka:
     image: index.docker.io/wurstmeister/kafka:latest
     container_name: kafka_01

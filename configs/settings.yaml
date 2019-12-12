@@ -27,7 +27,7 @@ service:
       - "xiewei@tkzc31.onexmail.com"
 dev:
   mysql:
-    port: "3306"
+    port: "3307"
     db: go-anything
     user: root
     passwd: adminMysql
