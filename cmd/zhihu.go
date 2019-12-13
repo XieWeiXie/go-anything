@@ -27,8 +27,8 @@ var ZhiHuCmd = &cobra.Command{
 
 func Run() {
 	index := zhihu.ResultForZhiHu{}
-	if ok := es_operator.DefaultEsClient.ExistsIndex(index); !ok {
-		log.Println(fmt.Sprintf("index not exists: %s", index.Index()))
+	if ok := es_operator.DefaultEsClient.ExistsIndex(index); ok {
+		log.Println(fmt.Sprintf("index exists: %s", index.Index()))
 	} else {
 		if ok := es_operator.DefaultEsClient.CreateIndex(index); !ok {
 			log.Println(fmt.Sprintf("index %s create fail", index.Index()))
