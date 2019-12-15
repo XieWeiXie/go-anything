@@ -34,9 +34,16 @@ func GetPageSource(ctx context.Context, url string) string {
 	return response
 }
 
-func GetPageSourceHTTP(url string) string {
+func GetPageSourceHTTP(url string, header ...map[string]string) string {
 	client := http.DefaultClient
 	request, e := http.NewRequest(http.MethodGet, url, nil)
+	if len(header) != 0 {
+		for _, v := range header {
+			for key, value := range v {
+				request.Header.Add(key, value)
+			}
+		}
+	}
 	request.Header.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36")
 	if e != nil {
 		log.Println(e)
