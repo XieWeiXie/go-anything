@@ -2,6 +2,7 @@ package holiday
 
 type (
 	GovResultForHoliday struct {
+		Query      string `json:"query"`
 		RawUrl     string `json:"raw_url"`
 		RawContent string `json:"raw_content"`
 	}

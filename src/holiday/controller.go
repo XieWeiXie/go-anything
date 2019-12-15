@@ -22,7 +22,7 @@ func getHolidayHandler(c iris.Context) {
 			"q": fmt.Sprintf(HOLIDAT_INTEGER, year),
 		})
 		url := fmt.Sprintf(HOST, v)
-		results = append(results, &GovResultForHoliday{RawUrl: url})
+		results = append(results, &GovResultForHoliday{RawUrl: url, Query: fmt.Sprintf(HOLIDAT_INTEGER, year)})
 	}
 	channel := NewConCurrency(len(years))
 	for index, i := range results {
@@ -30,7 +30,7 @@ func getHolidayHandler(c iris.Context) {
 		go func(index int, i *GovResultForHoliday) {
 			log.Println(index, i.RawUrl)
 			content := pageSource(i.RawUrl)
-			newContent := getContent(content)
+			newContent := getContent(content, i.RawUrl)
 			log.Println(newContent)
 			results[index].RawContent = newContent
 			defer channel.Done()

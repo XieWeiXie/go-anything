@@ -19,9 +19,9 @@ func TestPageSource(t *testing.T) {
 
 func TestGetContent(t *testing.T) {
 	short := urlEncode(map[string]string{
-		"q": fmt.Sprintf(HOLIDAY_STRING, 2020),
+		"q": fmt.Sprintf(HOLIDAY_STRING, 2019),
 	})
 	content := pageSource(fmt.Sprintf(HOST, short))
-	newContent := getContent(content)
+	newContent := getContent(content, fmt.Sprintf(HOST, short))
 	fmt.Println(newContent)
 }
