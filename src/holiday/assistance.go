@@ -42,11 +42,12 @@ func getContent(content string, urls string) string {
 		return "nil"
 	}
 	q, _ := url.ParseQuery(urls)
-	query := urlDecode(q.Encode()).Get("http://sousuo.gov.cn/s.htm?t=paper&q")
+	log.Println("q", q.Encode())
+	query := urlDecode(q.Encode()).Get("q")
 	var result string
 	doc.Find(".result ul li.res-list").Each(func(i int, selection *goquery.Selection) {
-		//log.Println(selection.Find("h3 a").Text(), query)
-		if strings.Contains(selection.Find("h3 a").Text(), query) {
+		log.Println(selection.Find("h3 a").Text(), query)
+		if selection.Find("h3 a").Text() == query {
 			log.Println(selection.Find("h3 a").Text(), query)
 			targetUrl, ok := selection.Find("h3 a").Attr("href")
 			if !ok {
