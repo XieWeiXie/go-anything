@@ -83,7 +83,7 @@ type EsIndexInterface interface {
 }
 
 // CreateIndex...
-// 结构尽可能的通用，所有采用 interface 入参形式
+// 结构尽可能的通用，采用 interface 入参形式
 func (E EsClient) CreateIndex(index EsIndexInterface) bool {
 	response, e := E.Client.Indices.Create(
 		index.Index(),

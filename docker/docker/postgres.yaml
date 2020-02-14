@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: localPostgres
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=venus_production
+      - POSTGRES_USER=lightyear
+      - POSTGRES_PASSWORD=root

@@ -39,7 +39,7 @@ func getHolidayHandler(c iris.Context) {
 	channel.Wait()
 	c.JSON(iris.Map{
 		"data": results,
-	}, iris.JSON{Indent: "  "})
+	})
 
 }
 

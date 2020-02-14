@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: localPostgres
+    restart: always
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=lock_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
