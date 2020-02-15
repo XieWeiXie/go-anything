@@ -1,6 +1,6 @@
 package Railway12306
 
-import "github.com/kataras/iris"
+import "github.com/kataras/iris/v12"
 
 func RegisterRailWay12306(c iris.Party) {
 	c.Get("/stations", railWayStationHandler)               // 站点

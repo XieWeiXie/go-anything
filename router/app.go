@@ -19,9 +19,9 @@ import (
 
 	"github.com/wuxiaoxiaoshen/go-anything/src/Railway12306"
 
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/middleware/logger"
-	"github.com/kataras/iris/middleware/recover"
+	"github.com/kataras/iris/v12"
+	"github.com/kataras/iris/v12/middleware/logger"
+	"github.com/kataras/iris/v12/middleware/recover"
 )
 
 func newApp() *iris.Application {

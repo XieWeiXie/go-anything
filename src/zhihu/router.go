@@ -1,6 +1,6 @@
 package zhihu
 
-import "github.com/kataras/iris"
+import "github.com/kataras/iris/v12"
 
 func RegisterForZhiHu(c iris.Party) {
 	c.Get("/hot/_search", getZhiHuHandler)

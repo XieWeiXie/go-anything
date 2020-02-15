@@ -12,7 +12,7 @@ import (
 
 	"github.com/kataras/iris"
 
-	"github.com/kataras/iris/context"
+	"github.com/kataras/iris/v12/context"
 )
 
 func ExportRailWayStationHelper() []StationInfo {
@@ -107,7 +107,7 @@ func railWayStationIsExistHandler(c context.Context) {
 	})
 }
 
-func ticketsHandler(c iris.Context) {
+func ticketsHandler(c context.Context) {
 	var params ticketsParams
 	form := c.URLParams()
 	t, _ := c.URLParamInt("type")
@@ -175,7 +175,7 @@ func ticketsHandler(c iris.Context) {
 	})
 }
 
-func typeForTicketsHandler(c iris.Context) {
+func typeForTicketsHandler(c context.Context) {
 	c.JSON(iris.Map{
 		"data": TickType,
 	})

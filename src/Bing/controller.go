@@ -8,7 +8,7 @@ import (
 
 	"github.com/wuxiaoxiaoshen/go-anything/pkg/page_source"
 
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 	"github.com/tidwall/gjson"
 )
 

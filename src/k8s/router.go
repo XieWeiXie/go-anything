@@ -1,6 +1,6 @@
 package k8s
 
-import "github.com/kataras/iris"
+import "github.com/kataras/iris/v12"
 
 func RegisterForK8s(c iris.Party) {
 	c.Get("/users", allUsersHandler)

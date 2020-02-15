@@ -1,6 +1,6 @@
 package weixin
 
-import "github.com/kataras/iris"
+import "github.com/kataras/iris/v12"
 
 func RegisterWeiXin(c iris.Party) {
 	c.Get("/tags", tagsHandler)

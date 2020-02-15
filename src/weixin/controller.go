@@ -10,7 +10,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 type TagsAction struct {

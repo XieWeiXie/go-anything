@@ -6,11 +6,11 @@ import (
 	"log"
 	"strings"
 
-	chromedp_helper "github.com/wuxiaoxiaoshen/go-anything/pkg/chromedp"
+	"github.com/wuxiaoxiaoshen/go-anything/pkg/chromedp"
 
 	"github.com/PuerkitoBio/goquery"
 
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 type CodeDetailAction struct {
