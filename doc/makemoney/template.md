@@ -12,15 +12,17 @@
 </div>
 
 <div class="image" align="center">
-    {{range .Images}}
-    <img src="{{.URL}}" width="33%" height="33%"/>
-    {{end}}
+{{range .Images}}
+<img src="{{.URL}}" width="33%" height="33%"/>
+{{end}}
 </div>
 
 <div align="left">
-    {{ range .Comments}}
-    <blockquote >
-    <span> <strong>{{.AuthorName}} // {{.Content}} </strong></span>
-    </blockquote>
-    {{end}}
+<div>
+{{ range .Comments}}
+<blockquote >
+<span> <strong>{{.AuthorName}} // {{.Content}} </strong></span>
+</blockquote>
+{{end}}
+</div>
 </div>

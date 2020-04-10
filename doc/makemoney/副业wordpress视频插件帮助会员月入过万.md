@@ -81,32 +81,34 @@
 </div>
 
 <div class="image" align="center">
-    
-    <img src="https://images.zsxq.com/Fu22W9vNANCriQ21E3gBJW8axFmx?imageMogr2/auto-orient/thumbnail/800x/format/jpg/blur/1x0/quality/75&amp;e=1590940799&amp;token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:kbuqi_ziwdujLx6nXhy4HIL6c8Y=" width="33%" height="33%"/>
-    
-    <img src="https://images.zsxq.com/FnuN_e2r0X0gMMGVJbpZD4SMeQe3?imageMogr2/auto-orient/thumbnail/800x/format/jpg/blur/1x0/quality/75&amp;e=1590940799&amp;token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:qeFcmT8i-9FNHqglnrV5UqhMlew=" width="33%" height="33%"/>
-    
-    <img src="https://images.zsxq.com/FlwZi6m_J5cttm3UIu-drAU-ZQrn?imageMogr2/auto-orient/thumbnail/800x/format/jpg/blur/1x0/quality/75&amp;e=1590940799&amp;token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:uF5gOthuvrVsM57qJRKKevy31A0=" width="33%" height="33%"/>
-    
+
+<img src="https://images.zsxq.com/Fu22W9vNANCriQ21E3gBJW8axFmx?imageMogr2/auto-orient/thumbnail/800x/format/jpg/blur/1x0/quality/75&amp;e=1590940799&amp;token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:kbuqi_ziwdujLx6nXhy4HIL6c8Y=" width="33%" height="33%"/>
+
+<img src="https://images.zsxq.com/FnuN_e2r0X0gMMGVJbpZD4SMeQe3?imageMogr2/auto-orient/thumbnail/800x/format/jpg/blur/1x0/quality/75&amp;e=1590940799&amp;token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:qeFcmT8i-9FNHqglnrV5UqhMlew=" width="33%" height="33%"/>
+
+<img src="https://images.zsxq.com/FlwZi6m_J5cttm3UIu-drAU-ZQrn?imageMogr2/auto-orient/thumbnail/800x/format/jpg/blur/1x0/quality/75&amp;e=1590940799&amp;token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:uF5gOthuvrVsM57qJRKKevy31A0=" width="33%" height="33%"/>
+
 </div>
 
 <div align="left">
-    
-    <blockquote >
-    <span> <strong>千羽 // 评论区也很有用。“充分利用API，创造性地利用其它公司的公开数据是产生收入的一种非常聪明的方法。
+<div>
+
+<blockquote >
+<span> <strong>千羽 // 评论区也很有用。“充分利用API，创造性地利用其它公司的公开数据是产生收入的一种非常聪明的方法。
 如果可以通过将多个API服务集成在一起，解决特定的业务问题创造价值，这很可能是更大的产品/想法的起点。” </strong></span>
-    </blockquote>
-    
-    <blockquote >
-    <span> <strong>xiaoda // 看来围绕着主流软件做一些小插件始终是个变现的好点子 </strong></span>
-    </blockquote>
-    
-    <blockquote >
-    <span> <strong>meek // 谢谢鱼丸分享 </strong></span>
-    </blockquote>
-    
-    <blockquote >
-    <span> <strong>阿思 // “不要过于关注你为成功而阅读的框架。” </strong></span>
-    </blockquote>
-    
+</blockquote>
+
+<blockquote >
+<span> <strong>xiaoda // 看来围绕着主流软件做一些小插件始终是个变现的好点子 </strong></span>
+</blockquote>
+
+<blockquote >
+<span> <strong>meek // 谢谢鱼丸分享 </strong></span>
+</blockquote>
+
+<blockquote >
+<span> <strong>阿思 // “不要过于关注你为成功而阅读的框架。” </strong></span>
+</blockquote>
+
+</div>
 </div>
