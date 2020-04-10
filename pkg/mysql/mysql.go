@@ -1,6 +1,7 @@
 package mysql_operator
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"os"
@@ -25,6 +26,7 @@ type (
 
 var (
 	mysqlSetting       string
+	mysqlSettingORI    string
 	DefaultMySQLAction MySQLAction
 )
 
@@ -53,6 +55,7 @@ func MySQLInit() {
 		s.user, s.password, s.host, s.port, s.db)
 
 	log.Println(mysqlSetting)
+	mysqlSettingORI = mysqlSetting
 	DefaultMySQLAction.DB = newMysql()
 }
 
@@ -72,3 +75,33 @@ func newMysql() *gorm.DB {
 func (M MySQLAction) Close() {
 	defer M.DB.Close()
 }
+
+type MysqlActionWithORI struct {
+	DB *sql.DB
+}
+
+func (m MysqlActionWithORI) Close() {
+	m.DB.Close()
+}
+
+var (
+	MySQLActionWithORI MysqlActionWithORI
+)
+
+func MysqlInitORI() {
+	db, e := sql.Open("mysql", mysqlSettingORI)
+	if e != nil {
+		log.Panicln(e)
+		panic(e)
+	}
+	if e := db.Ping(); e != nil {
+		log.Panicln(e)
+		panic(e)
+	}
+	db.SetMaxIdleConns(3)
+	db.SetMaxOpenConns(3)
+
+	MySQLActionWithORI.DB = db
+}
+
+var DefaultMySQLActionWithORI = MySQLActionWithORI

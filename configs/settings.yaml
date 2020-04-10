@@ -4,7 +4,7 @@ weChat: "wu_xiaoshen"
 service:
   mysql:
     port: "3306"
-    db: go-anything
+    db: go_anything
     user: root
     passwd: adminMysql
     host: mysql
@@ -14,8 +14,8 @@ service:
     host: redis
   kafka:
     broker: kafka:9092
-    topic: go-anything
-    consumerGroup: go-anything-consumer-group
+    topic: go_anything
+    consumerGroup: go_anything-consumer-group
   es:
     address: es:9200
     user: ""
@@ -27,8 +27,8 @@ service:
       - "xiewei@tkzc31.onexmail.com"
 dev:
   mysql:
-    port: "3307"
-    db: go-anything
+    port: "3306"
+    db: go_anything
     user: root
     passwd: adminMysql
     host: "127.0.0.1"
@@ -38,8 +38,8 @@ dev:
     host: "127.0.0.1"
   kafka:
     broker: "127.0.0.1:9092"
-    topic: go-anything
-    consumerGroup: go-anything-consumer-group
+    topic: go_anything
+    consumerGroup: go_anything-consumer-group
   email:
     sender: "1156143589@qq.com"
     auth: "bWVuZ3d1MTliYW5nNTg1MjA="

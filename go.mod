@@ -12,6 +12,9 @@ require (
 	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4 // indirect
 	github.com/gavv/monotime v0.0.0-20190418164738-30dba4353424 // indirect
 	github.com/go-gomail/gomail v0.0.0-20160411212932-81ebce5c23df
+	github.com/gobuffalo/envy v1.9.0 // indirect
+	github.com/gobuffalo/packd v1.0.0 // indirect
+	github.com/gobuffalo/packr v1.30.1
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/gorilla/schema v1.1.0 // indirect
@@ -26,6 +29,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/moul/http2curl v1.0.0 // indirect
+	github.com/rogpeppe/go-internal v1.5.2 // indirect
 	github.com/sergi/go-diff v1.0.0 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
