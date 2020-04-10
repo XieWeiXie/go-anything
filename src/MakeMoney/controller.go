@@ -66,7 +66,7 @@ func (r RealMakeMoneyAction) Do() []model.MakeMoney {
 			makeMoney.Owner.AvatarURL = owner.Get("avatar_url").String()
 
 			text := newJs.Get("content.talk.text").String()
-			makeMoney.Text = text
+			makeMoney.Text = formatText(text)
 
 			images := newJs.Get("content.talk.images").Array()
 			for _, i := range images {

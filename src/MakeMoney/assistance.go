@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
+	"regexp"
 	"sync"
 	"time"
 )
@@ -26,7 +27,23 @@ func formatBody(topicId int64) io.Reader {
 
 func formatTime(string2 string) time.Time {
 	t, _ := time.Parse("2006-01-02T15:04:05Z", string2)
+	ft := t.Format("2006-01-02 15:04:05")
+	t, _ = time.Parse("2006-01-02 15:04:05", ft)
 	return t
+}
+
+var (
+	patternOne = `<e type="hashtag".*?/>`
+	patternTwo = `<e type="web".*?/>）`
+)
+
+func formatText(string2 string) string {
+	re1 := regexp.MustCompile(patternOne)
+	s1 := re1.ReplaceAllString(string2, "")
+	re2 := regexp.MustCompile(patternTwo)
+	s2 := re2.ReplaceAllString(s1, "")
+	return s2
+
 }
 
 type C struct {

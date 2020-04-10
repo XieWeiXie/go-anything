@@ -16,7 +16,7 @@
 ## 配图
 <div class="image" align="center">
 {{range .Images}}
-<img src="{{.URL}}" width="200" height="200" style="border:1px solid;border-radius:50%; color:#ffffff"/>
+<img src="{{.URL}}" width="33%" height="33%" style="border:1px solid;border-radius:50%; color:#3c3f41"/>
 {{end}}
 </div>
 
@@ -26,7 +26,7 @@
 <div>
 {{ range .Comments}}
 <blockquote >
-<span> <strong>{{.AuthorName}} // {{.Content}} </strong></span>
+<span> <strong>{{.AuthorName}} : {{.Content}} </strong></span>
 </blockquote>
 {{end}}
 </div>
