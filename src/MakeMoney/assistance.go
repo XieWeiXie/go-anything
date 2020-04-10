@@ -41,7 +41,10 @@ var (
 // https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FVUkiwU2a2HcqCMeQholqhA
 
 func urlEncode(str string) string {
-	u, _ := url.QueryUnescape(str)
+	u, e := url.QueryUnescape(str)
+	if e != nil {
+		return str
+	}
 	return u
 }
 
