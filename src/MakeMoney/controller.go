@@ -26,7 +26,7 @@ func NewRealMakeMoneyAction(url string) *RealMakeMoneyAction {
 func (r RealMakeMoneyAction) Do() []model.MakeMoney {
 	var body = make(map[string]interface{})
 	body = map[string]interface{}{
-		"limit":          10,
+		"limit":          1500,
 		"skip":           0,
 		"order":          "-time",
 		"_method":        "GET",
@@ -40,7 +40,7 @@ func (r RealMakeMoneyAction) Do() []model.MakeMoney {
 	content := chromedp_helper.GetPageSourceHTTPPost(r.Url, reader, header)
 	//log.Println(content)
 	js := gjson.Parse(content)
-	c := NewConCurrency(30)
+	c := NewConCurrency(20)
 	var results []model.MakeMoney
 	for _, i := range js.Get("results").Array() {
 		c.Add(1)
@@ -58,7 +58,12 @@ func (r RealMakeMoneyAction) Do() []model.MakeMoney {
 			defer c.Done()
 			newContent := chromedp_helper.GetPageSourceHTTPPost(contentURL, formatBody(id), header)
 			//log.Println(newContent)
-			newJs := gjson.Parse(newContent).Get("results").Array()[0]
+			array := gjson.Parse(newContent).Get("results").Array()
+			if len(array) != 1 {
+				return
+			}
+			newJs := array[0]
+
 			makeMoney.Title = title
 			makeMoney.CreateTime = formatTime(newJs.Get("create_time.iso").String())
 			owner := newJs.Get("content.talk.owner")

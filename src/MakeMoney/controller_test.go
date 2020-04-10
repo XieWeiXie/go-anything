@@ -38,7 +38,8 @@ func TestRealMakeMoneyAction_Do(t *testing.T) {
 }
 
 func toSave(title string, content []byte) error {
-	replacer := strings.NewReplacer("，", "", "\"", "", " ", "")
+	replacer := strings.NewReplacer("，", "", "\"", "", " ", "",
+		"/", "")
 	title = replacer.Replace(title)
 	f, e := os.Create(fmt.Sprintf("../../doc/makemoney/%s.md", title))
 	if e != nil {

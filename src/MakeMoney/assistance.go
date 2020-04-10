@@ -33,7 +33,7 @@ func formatTime(string2 string) time.Time {
 }
 
 var (
-	patternOne = `<e type="hashtag".*?/>`
+	patternOne = `<e type.*?/>`
 	patternTwo = `<e type="web".*?/>）`
 )
 
