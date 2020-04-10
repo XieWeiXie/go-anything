@@ -10,7 +10,7 @@
 ## 正文
 
 <div>
- 
+&lt;e type=&#34;hashtag&#34; hid=&#34;2455128841&#34; title=&#34;#一起赚美元#&#34; /&gt; 
 
 大家好，又到周五啦！每周五，鱼丸带来一篇赚美元的案例，带大家开眼看世界如何“生财有术”~
 
@@ -66,7 +66,7 @@ TranslatePress开始是纯免费版本，在此基础上我们做了以下宣传
 
 越分享越有价值，觉得不错记得给鱼丸一个赞哦~
 
-原文链接
+原文链接&lt;e type=&#34;web&#34; href=&#34;https://www.indiehackers.com/interview/generating-10-000-per-month-from-a-freemium-business-model-16dd43e3ef&#34; title=&#34;Generating $10,000 Per Month from a Freemium Busin...&#34; /&gt;
 </div>
 
 ## 配图

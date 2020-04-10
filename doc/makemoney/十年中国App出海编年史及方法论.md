@@ -14,7 +14,7 @@
 作者貌似隐去yeahmobi和avazu等的牛逼
 
 有心人可以分析下趋势，还有很多细分机会
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/ZL7Oqt7oVPQTgwWGEoasxQ&#34; title=&#34;国际化怎么做？十年中国 App 出海编年史及方法论&#34; cache=&#34;http://cache.xiaomiquan.com/201705/43a3d18957e11f5e5b905cea70cd981e54846508e1a02fa90fd18333dd946545&#34; /&gt;
 </div>
 
 ## 配图

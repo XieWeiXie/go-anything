@@ -10,8 +10,8 @@
 ## 正文
 
 <div>
-        
-facebook，facebook messenger，WhatsApp，WeChat，line，telegram、Snapchat、Skype、kakao talk等亿级、甚至10亿&#43;DAU的即时聊天（IM)类APP，有很多羊毛可以薅。（图1）
+&lt;e type=&#34;hashtag&#34; hid=&#34;8212448112&#34; title=&#34;#案例分享#&#34; /&gt;    &lt;e type=&#34;hashtag&#34; hid=&#34;2455128841&#34; title=&#34;#一起赚美元#&#34; /&gt;    
+facebook，facebook messenger，WhatsApp，WeChat，line，telegram、Snapchat、Skype、kakao talk等亿级、甚至10亿 DAU的即时聊天（IM)类APP，有很多羊毛可以薅。（图1）
 
 今天抛砖引玉，讲一下最简单的插件包case。
 
@@ -22,15 +22,15 @@ WhatsApp的traffic，不废话（图2）
 
 我的小伙伴们经过努力，也把WhatsApp关键词做到第9（图4）怎么做到的呢？
 参照我上一篇群精华，即细水长流、阶梯式导流获取自然流量的的文章。
+&lt;e type=&#34;web&#34; href=&#34;https://t.zsxq.com/YfAYjI6&#34; title=&#34;加入知识星球，连接一千个铁杆粉丝&#34; cache=&#34;http://cache.zsxq.com/201804/e1b1584b20141b00fd156385c7e170f0f12793b225d1afa18780fba77fe2e6c8&#34; /&gt;
 
-
-也有一家友商，做到了月20w&#43;下载（图5），国家分布均匀（图6）
+也有一家友商，做到了月20w 下载（图5），国家分布均匀（图6）
 
 薅羊毛最爽的是安卓旗舰机和iOS。比如
 XX theme for S6/S7/S8/S9（三星机器）
 XX theme for iOS 7/8/9/10（苹果系统）
 
-据我所知，Google Play上上述薅机型和系统的皮肤，100w&#43;下载的不少于100个，500w&#43;下载不少于10个，甚至有1000w&#43;的。我14、15年上架一个三星S6的皮肤，后来改为S7，并修改了上架图，目前下载量1000w&#43;（图7，图8）
+据我所知，Google Play上上述薅机型和系统的皮肤，100w 下载的不少于100个，500w 下载不少于10个，甚至有1000w 的。我14、15年上架一个三星S6的皮肤，后来改为S7，并修改了上架图，目前下载量1000w （图7，图8）
 
 这里薅羊毛要注意政策随时会调整，比如：
 17年以前可以用iOS10，现在只能用OS10。
@@ -43,7 +43,7 @@ XX theme for iOS 7/8/9/10（苹果系统）
 
 最后，补充下，Google Play的政策，其实是默许做马甲包的，但不能一模一样。我沟通下来，他们支持做几类马甲包。比如：
 ① 主包是免费版（含广告）、马甲包是付费去广告版，参见CM launcher Prime。
-② 主包是免费版&#43;高级功能（需解锁），马甲包是付费解锁高级功能的license。参见nova launcher，prime的License卖了几百万美金（图9）
+② 主包是免费版 高级功能（需解锁），马甲包是付费解锁高级功能的license。参见nova launcher，prime的License卖了几百万美金（图9）
 ③ 按时间收费，涵盖所有功能 - 月度、季度、年度 
 ④ 按功能分开打包，分别定价  - 比如 Package 1 包含 1- 3， Package 2 包含 5 - 7, Package 3 包含 4 
 最后，要给用户选择，终身买断，或订阅。

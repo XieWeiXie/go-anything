@@ -10,7 +10,7 @@
 ## 正文
 
 <div>
-    
+&lt;e type=&#34;hashtag&#34; hid=&#34;4515151888&#34; title=&#34;#思路分享#&#34; /&gt;  &lt;e type=&#34;hashtag&#34; hid=&#34;8212448112&#34; title=&#34;#案例分享#&#34; /&gt;  
 
 分享100个围绕YouTube赚钱或者获取流量的思路，亦仁原创。 
 
@@ -22,7 +22,7 @@
 
 2. Youtube Adsense earnings估算平台，小工具，类似于similarweb， 可以取名叫similarchannels， 估算每个youtube channel 收入如何；
 
-3. Youtube &#43;Audiam， Audiam是版权管理联盟，可以不经过Youtube就可以迅速获得Youtube Content ID功能，更多请Google，很多机会；
+3. Youtube  Audiam， Audiam是版权管理联盟，可以不经过Youtube就可以迅速获得Youtube Content ID功能，更多请Google，很多机会；
   
 4. Youtube视频素材库，创意库每日热点，参考新榜、西瓜集、微小宝的每日素材库；
   

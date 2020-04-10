@@ -10,12 +10,12 @@
 ## 正文
 
 <div>
-   
+&lt;e type=&#34;hashtag&#34; hid=&#34;158158424542&#34; title=&#34;#顺手的工具#&#34; /&gt;   
 [2]--Tableau
 Tableau是用于可视分析数据的商业智能工具。用户可以创建和分发交互式和可共享的仪表板，以图形和图表的形式描绘数据的趋势，变化和密度。
 比Excel的透视表好用，逼格很高，非常适合数据可视化，支持很多数据源，支持直接输出ppt，我用了4年了，不太便宜，如果你总需要出报告，建议用，很唬人
-
-w3c上也出了一份教程：
+&lt;e type=&#34;web&#34; href=&#34;https://www.tableau.com/zh-cn&#34; title=&#34;商业智能和分析 | Tableau Software&#34; cache=&#34;http://cache.zsxq.com/201806/3a0b67f5f4e172e1e7ae66edb09f4393abadd2ba739b8c200706629c7611aff4&#34; /&gt;
+w3c上也出了一份教程：&lt;e type=&#34;web&#34; href=&#34;https://www.w3cschool.cn/tableau/&#34; title=&#34;Tableau教程_w3cschool&#34; cache=&#34;http://cache.zsxq.com/201806/4c2254e5a5cc5c6afdee8b081f04d10ec96523b07bbfa552e42140a97c12106c&#34; /&gt;
 我用这个工具帮助，谈成过5笔业务
 </div>
 

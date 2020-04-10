@@ -16,7 +16,7 @@ ETC联合推广或者整合线上推广，是个好机会。
 
 每成功推荐办理一个CPA大概几十块钱。 
 
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/i5PqUUjmkSajwZS948-wvw&#34; title=&#34;上亿车主还没办…各银行狂推ETC支付&#34; cache=&#34;&#34; /&gt;
 </div>
 
 ## 配图

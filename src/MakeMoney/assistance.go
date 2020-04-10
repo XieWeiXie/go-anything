@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
-	"regexp"
+	"net/url"
 	"sync"
 	"time"
 )
@@ -34,15 +34,25 @@ func formatTime(string2 string) time.Time {
 
 var (
 	patternOne = `<e type.*?/>`
-	patternTwo = `<e type="web".*?/>）`
+	patternTwo = `<e type="web" href="(.*?)" title="(.*?)".*?/>）`
 )
 
+// https://mp.weixin.qq.com/s/VUkiwU2a2HcqCMeQholqhA
+// https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FVUkiwU2a2HcqCMeQholqhA
+
+func urlEncode(str string) string {
+	u, _ := url.QueryUnescape(str)
+	return u
+}
+
 func formatText(string2 string) string {
-	re1 := regexp.MustCompile(patternOne)
-	s1 := re1.ReplaceAllString(string2, "")
-	re2 := regexp.MustCompile(patternTwo)
-	s2 := re2.ReplaceAllString(s1, "")
-	return s2
+	string2 = urlEncode(string2)
+	//re1 := regexp.MustCompile(patternOne)
+	//s1 := re1.ReplaceAllString(string2, "")
+	//re2 := regexp.MustCompile(patternTwo)
+	//s2 := re2.FindAllStringSubmatch(string2, -1)
+	//fmt.Println(s2)
+	return string2
 
 }
 

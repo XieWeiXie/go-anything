@@ -10,14 +10,14 @@
 ## 正文
 
 <div>
- 
+&lt;e type=&#34;hashtag&#34; hid=&#34;4515151888&#34; title=&#34;#思路分享#&#34; /&gt; 
 
 作为kindle用户，在新书上我会选择直接购买，而旧书会选择找盗版下载，kindle的盗版市场目前有三种玩法：
 
 1.网站公众号推送或者下载；
 目前一些个人站在搞这个，以集思会和so-kindle为例，两者都是把数据存储在自己的服务器，提供用户下载；
 但两者运营策略有点区别，集思会属于vip制，具体规则如图一，价格相对合理，最重要的是全网广告就一个，很有良心，同时运营着公众号、app以及小程序进行推送；
-so-kindle积分制(图二)&#43;会员制(图三)，价格也很合理，但是配合上积分制就很奇葩，唯一一个亮点就是提供用户上传资料送积分的功能，相对于前者，该站长有点停滞不前；
+so-kindle积分制(图二) 会员制(图三)，价格也很合理，但是配合上积分制就很奇葩，唯一一个亮点就是提供用户上传资料送积分的功能，相对于前者，该站长有点停滞不前；
 这种玩法很普遍，跟提供电影下载地址的独立站很类似。
 
 2.破解电子书网站：
@@ -49,10 +49,10 @@ so-kindle积分制(图二)&#43;会员制(图三)，价格也很合理，但是�
 
 以上可能都是伪需求，也可能是小众需求，但不要局限在kindle上，国内目前也有京东当当阅文在弄阅读器，以目前来说阅文有强大的ip支持，若全力发展不见得发展不好，那么以上这些是否可以复制？当然也可以国内复制到国外，做大平台下的开拓者也不错。
 
-集思会()
-so-kindle()
-epubee()
-鸠摩搜索()
+集思会(&lt;e type=&#34;web&#34; href=&#34;http://www.kindlepush.com&#34; title=&#34;集思会,kindle推|kindle推送|kindle图书推送|kindlepush|kindle电...&#34; cache=&#34;http://cache.zsxq.com/201804/b7027b24a1ee05fdf71489e68e6dca9cebfbbf364a0b6ae5715b128b3665f2d3&#34; /&gt;)
+so-kindle(&lt;e type=&#34;web&#34; href=&#34;https://www.so-kindle.com&#34; title=&#34;Kindle资源库&#34; cache=&#34;http://cache.zsxq.com/201804/33d011292c9bf23a8b903ee44e50b42c359bae34fdfad1c576df2e9de1f7e3fa&#34; /&gt;)
+epubee(&lt;e type=&#34;web&#34; href=&#34;http://cn.epubee.com&#34; title=&#34;在线电子书转换, 免费电子书转换器&#34; cache=&#34;http://cache.zsxq.com/201804/76b1472f07af56e62c5364cde0b47f3dd07a4fcf1fad8b49e621bc69bc141b30&#34; /&gt;)
+鸠摩搜索(&lt;e type=&#34;web&#34; href=&#34;https://www.jiumodiary.com&#34; title=&#34;Jiumo E-Book Search 鸠摩搜书 - 文档搜索引擎&#34; cache=&#34;http://cache.zsxq.com/201804/fdce7ffe72d797ed43d3c7b5238bb0a239ec503f396f43a005ebc4b43cdbea15&#34; /&gt;)
 </div>
 
 ## 配图

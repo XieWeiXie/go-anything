@@ -10,7 +10,7 @@
 ## 正文
 
 <div>
-  
+&lt;e type=&#34;hashtag&#34; hid=&#34;8212448112&#34; title=&#34;#案例分享#&#34; /&gt;  
 
 梳理了21个围绕YouTube流量平台可以做项目的思路，几乎每一个目前都已经有了成功的案例。 
 
@@ -23,10 +23,10 @@
 创作
 6. Youtube 免版权音乐下载，youtube自身提供一些免费版权的音乐，可以将这些聚合起来之后免费提供，通过广告或者一些素材收费。 
 7. Youtube tag提取工具，Youtube Tags搜索器，自动提取，有个思路是分久必合，合久必分，别人收费的你免费，别人巨无霸，你单点切入。 
-8. Youtube Name generator，如，  每月接近百万流量。 
-9. Youtube关键词分析服务商，提供关键词的指导建议，按月收费服务。现在Adwords不免费提供keyword planner之后， 此类需求上升。如，每月430万流量。
+8. Youtube Name generator，如&lt;e type=&#34;web&#34; href=&#34;http://www.namegenerator.biz/youtube-name-generator.php&#34; title=&#34;YouTube Name Generator For Cool Channel Names!&#34; cache=&#34;http://cache.xiaomiquan.com/201704/2c0829c64789f74976d512a7e45286376b74692c4865f3f25020f7020c942767&#34; /&gt;，  每月接近百万流量。 
+9. Youtube关键词分析服务商，提供关键词的指导建议，按月收费服务。现在Adwords不免费提供keyword planner之后， 此类需求上升。如&lt;e type=&#34;web&#34; href=&#34;http://keywordtool.io/youtube&#34; title=&#34;YouTube Keyword Tool: Generate Tags List, Video Id...&#34; cache=&#34;http://cache.xiaomiquan.com/201704/bcdf41e35a9cf7f1055f4739716c694b869bdc79851766ed4802ad3040d7bf71&#34; /&gt;，每月430万流量。
 推广
-10. Youtube 广告收入估算，, 日2000流量。 
+10. Youtube 广告收入估算，&lt;e type=&#34;web&#34; href=&#34;https://youtubemoney.mes.fm/&#34; title=&#34;YouTube Money Calculator | Math Easy Solutions&#34; cache=&#34;http://cache.xiaomiquan.com/201704/2a45845a3cc1a3fd3800c13e34252185f1884cc1c741dae6ae8c86e0fa2e5b79&#34; /&gt;, 日2000流量。 
 11. Youtube订阅者、账户、点赞、评论、分享服务，太多了。 
 12. Youtube营销服务，找到上面的服务商，打包成一个营销套餐。
 13. Youtube网红服务商，Youtube上找到联系到红人还比较难， 所以需要试验几次，收集到某一个垂直领域的联系方式之后，可以帮助国内的跨境电商做营销服务。 
@@ -34,10 +34,10 @@
 14. Youtube 广告中间服务，掌握Youtube广告投放技巧后，帮助国内或者国外的人在Youtube上投放广告，类似于Facebook或者Adwords的广告代投放。
 15. Youtube视频分销服务，找到国内的版权所有者，或者国外Youtube的红人视频，签协议， 在国内分发或者在国外分发。 
 周边
-16. Youtube logo下载，各个版本各个颜色的logo下载。每天2000流量。
+16. Youtube logo下载，各个版本各个颜色的logo下载。&lt;e type=&#34;web&#34; href=&#34;https://www.famouslogos.us/youtube-logo/,&#34; title=&#34;https://www.famouslogos.us/youtube-logo/,&#34; cache=&#34;http://cache.xiaomiquan.com/201704/a0e113017b06d5242e91b045b7cd35427373fb7b5982655ca89a4185766bdb39&#34; /&gt;每天2000流量。
 17. Youtube logo maker制作器，同上。
 YouTube MP3 /视频下载器，之前讨论过，月流量和盈利特别惊人。
-18. Youtube视频转gif, ，每月700万流量，
+18. Youtube视频转gif, &lt;e type=&#34;web&#34; href=&#34;http://makeagif.com/youtube-to-gif&#34; title=&#34;Make A Gif - Animated Gifs Maker, Free Gif Creator...&#34; cache=&#34;http://cache.xiaomiquan.com/201704/e508f3315c2650f7d46d4f17e96fe16127729ab5344ccbff7c3f32e608fce32a&#34; /&gt;，每月700万流量，
 19. Youtube国内视频下载服务，卖梯子是一种思路，提供视频是另外一种思路。 
 20. Youtube字幕引流思路， Youtube会自动生成字幕，将这些字幕导出后并整理成一篇文章，供单独下载，也许是一个很好的文章来源。 
 21. Youtube视频转文字，直接分享过一篇创业项目的文章。

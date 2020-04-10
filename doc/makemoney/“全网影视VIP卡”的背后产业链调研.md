@@ -60,7 +60,7 @@
 
 a)免费接口是长这样的格式” jx.xxxxxx.com/?url=视频地址“。接口是可以判断用户使用什么设备播放的，大部分的接口都是在移动端有广告，部分接口PC端有广告，有精明的会在晚8-10点投广告。免费的解析接口现在只能靠广告联盟进行赚钱，20万的ip一天可以赚小两千，广告形式如图四
 
-b)收费的接口大概可以分为两套收费标准，一是包月XX元钱，二是按量解析一次XX「解析点」，收费的接口无广告、高清、秒解析。解析接口其实和github的一个开源项目(you-get)有些相似，如果感兴趣的可以了解下  。
+b)收费的接口大概可以分为两套收费标准，一是包月XX元钱，二是按量解析一次XX「解析点」，收费的接口无广告、高清、秒解析。解析接口其实和github的一个开源项目(you-get)有些相似，如果感兴趣的可以了解下 &lt;e type=&#34;web&#34; href=&#34;https://github.com/soimort/you-get&#34; title=&#34;GitHub - soimort/you-get: Dumb downloader that scr...&#34; /&gt; 。
 
 听到这里，不禁感叹现在会技术是多么好，但是反过来一想，为什么他们不把这些技术用到好的地方呢？
 
@@ -87,13 +87,13 @@ b)收费的接口大概可以分为两套收费标准，一是包月XX元钱，�
 
 
 扩展阅读: 
-
-
-
-
-
-
-
+&lt;e type=&#34;web&#34; href=&#34;https://baijiahao.baidu.com/s?id=1604199439151533547&amp;wfr=spider&amp;for=pc&#34; title=&#34;揭秘！非法APP为卖广告盗播视频网站 活跃用户超360万&#34; cache=&#34;&#34; /&gt;
+&lt;e type=&#34;web&#34; href=&#34;https://news.mydrivers.com/1/581/581342.htm&#34; title=&#34;20元成12家视频网站会员 乐尚视界APP运营者被抓-20元,12家,视频网站,会员,万能APP,原...&#34; /&gt;
+&lt;e type=&#34;web&#34; href=&#34;https://t.cj.sina.com.cn/articles/view/6860915153/198f141d100100db42?from=tech&#34; title=&#34;必须下线！“麻花影视”挑衅法律，四大片方联合宣战__财经头条&#34; cache=&#34;&#34; /&gt;
+&lt;e type=&#34;web&#34; href=&#34;https://ent.sina.cn/film/chinese/2019-02-12/detail-ihqfskcp4649194.d.html?oid=125&amp;vt=4&#34; title=&#34;春节档电影维权反盗版 敦促“麻花影视”停止侵权_手机新浪网&#34; cache=&#34;&#34; /&gt;
+&lt;e type=&#34;web&#34; href=&#34;http://www.sohu.com/a/295060632_114774?scm=1002.44003c.fd00fe.PC_ARTICLE_REC&#34; title=&#34;麻花影视已下架《流浪地球》等春节档盗版电影资源_sorry&#34; cache=&#34;&#34; /&gt;
+&lt;e type=&#34;web&#34; href=&#34;http://dy.163.com/v2/article/detail/EE27MLUJ05377DPB.html&#34; title=&#34;刚刚被打掉的&#34;麻花影视&#34;，如今已经死灰复燃_网易订阅&#34; cache=&#34;&#34; /&gt;
+&lt;e type=&#34;web&#34; href=&#34;https://baijiahao.baidu.com/s?id=1632135477278776944&amp;wfr=spider&amp;for=pc&#34; title=&#34;《流浪地球》《飞驰人生》盗版电影案告破：59人被抓，麻花影视app被端&#34; cache=&#34;&#34; /&gt;
 </div>
 
 ## 配图

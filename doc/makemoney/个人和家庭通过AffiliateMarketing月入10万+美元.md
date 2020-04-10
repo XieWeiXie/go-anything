@@ -10,10 +10,10 @@
 ## 正文
 
 <div>
-  Affiliate Marketing 案例分享
-网站：
+&lt;e type=&#34;hashtag&#34; hid=&#34;2455128841&#34; title=&#34;#一起赚美元#&#34; /&gt;  Affiliate Marketing 案例分享
+网站：&lt;e type=&#34;web&#34; href=&#34;https://www.makingsenseofcents.com/&#34; title=&#34;https://www.makingsenseofcents.com/&#34; /&gt;
 Niche: 个人和家庭理财，怎样通过网络赚钱
-月收入：$100,000 &#43; 
+月收入：$100,000   
 
 主要内容形式：
 Making Sense of Cents是一个理财类或者说是教人如何赚钱的网站，对外宣传站长只有一个人—Michelle，个人猜测会有外包团队合作。她在Blog中记录了自己的网站营利和个人成长等很多事情，从自己到家庭，以及分享个人在做网站方面的经验，推荐不同课程等等。每个月的收入报告，吸引着更多人前来围观。

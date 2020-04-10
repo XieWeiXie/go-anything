@@ -16,7 +16,7 @@
 
 略软文，但值得看看思路😏
 
-
+&lt;e type=&#34;web&#34; href=&#34;https://blog.usefomo.com/how-we-bought-a-small-software-startup/?utm_source=wanqu.co&amp;utm_campaign=Wanqu&#43;Daily&amp;utm_medium=website&#34; title=&#34;https://blog.usefomo.com/how-we-bought-a-small-sof...&#34; cache=&#34;http://cache.xiaomiquan.com/201705/3e0dbca1e0e4124115db3efa75522ee3168972c44fc482015ae2494517974322&#34; /&gt;
 </div>
 
 ## 配图

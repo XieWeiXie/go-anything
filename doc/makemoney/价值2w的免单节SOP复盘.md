@@ -13,7 +13,7 @@
 操盘完免单节，复盘的案例，我曾经卖2W
 处女贴，希望大佬翻拍…SJ
 
-
+&lt;e type=&#34;web&#34; href=&#34;https://shimo.im/docs/CPV96XkT8HYrJ3kW/&#34; title=&#34;这套免单节SOP我曾卖2W&#34; style=&#34;icon&#34;/&gt;
 </div>
 
 ## 配图

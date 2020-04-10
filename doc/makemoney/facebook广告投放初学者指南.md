@@ -10,12 +10,12 @@
 ## 正文
 
 <div>
-   
+&lt;e type=&#34;hashtag&#34; hid=&#34;4252842148&#34; title=&#34;#大航海时代，我们一起赚钱！#&#34; /&gt;   
 
 Facebook广告投放初体验
 
 先锋号的广告要正式开始投放啦~先看看广告预览，很帅有没有？
-广告预览链接:  
+广告预览链接:  &lt;e type=&#34;web&#34; href=&#34;https://fb.me/bESy77Rq0rfH2J&#34; title=&#34;https://fb.me/bESy77Rq0rfH2J&#34; cache=&#34;http://cache.xiaomiquan.com/201707/fc29cf23b321f757cf2b07066d86b030a811586c8ca32a4e0b605692bff5be48&#34; /&gt;
 但FB广告组长小来同学却感受到了森森的挫折感。
 Why? 请听我从头道来。
 
@@ -54,21 +54,21 @@ Why? 请听我从头道来。
 我在心里默默给光牧点了个赞，简直说出了我的心声——FB小白完全听不懂那些专业术语有没有？突然觉得自己和他们在完全不同的时空。。。
 于是，我默默的点开搜索，恶补了一下FB广告的相关知识：
 Facebook广告初学者指南
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/wE8WCno0gfD7dhso9z6vWQ&#34; title=&#34;Facebook广告初学者指南&#34; cache=&#34;http://cache.xiaomiquan.com/201707/c13f17e1ed2439d4dad5268ff171f6b7e89030dc6fac52c76b7fc5ce66841cb1&#34; /&gt;
 你的Facebook广告被拒绝刊登的3个常见原因，你都知道吗？
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/FetkvlH0ltcZC1uIl_maLw&#34; title=&#34;你的Facebook广告被拒绝刊登的3个常见原因，你都知道吗？&#34; cache=&#34;http://cache.xiaomiquan.com/201707/c340c6cc08770a3558eecfa72a7af94cdf24dda4babe2566e9f93c504afb217c&#34; /&gt;
 手把手教你如何精准定位Facebook的广告受众
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/P4lVVAwYRXxCNocmSRCp-w&#34; title=&#34;手把手教你如何精准定位Facebook的广告受众&#34; cache=&#34;http://cache.xiaomiquan.com/201707/46728303ef3c60f2cba10ca2b3f5170435adebc3c7bf498a10666eb86313953c&#34; /&gt;
 手把手教你Facebook广告设置
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/Q8iyUX8G5hFFVnJ8vFRvNg&#34; title=&#34;手把手教你Facebook广告设置&#34; cache=&#34;http://cache.xiaomiquan.com/201707/ddb8e5e61822819aa6edae858d8556ecb18ddf69b471ea06ebee307e7e02b36b&#34; /&gt;
 Facebook广告投放有哪些好用的spy工具？
-
+&lt;e type=&#34;web&#34; href=&#34;https://www.zhihu.com/question/38606335?sort=created&#34; title=&#34;Facebook广告投放有哪些好用的spy工具？ - 知乎&#34; cache=&#34;http://cache.xiaomiquan.com/201707/02f72c73e676eff68bb1d1621f470db0a42d389ba206aa5facadb45c9d22d5e1&#34; /&gt;
 
 最后，欧阳老师还总结如下：
 1、广告需要修改的时候，不要在原来的基础上修改，而是新建一个新的广告；
 2、FB官方有基本的操作说明文档，但FB BUG较多，需要测试优化比较效果；
 3、测试不是意味着没有节制的烧钱，而是控制成本的试错。
-4、有一些非常专业的FB广告SPY工具，如 但是，非常不便宜。当然也有省钱的办法：给自己的广告page点赞，follow page，给你感兴趣的广告点赞，你就会被FB列为对这列产品感兴趣的受众，下次有类似的产品广告出来，FB就会展现给你。
+4、有一些非常专业的FB广告SPY工具，如&lt;e type=&#34;web&#34; href=&#34;http://www.adseedata.com&#34; title=&#34;AdSeeData | The Leading Advertising Intelligence P...&#34; cache=&#34;http://cache.xiaomiquan.com/201707/ead54d9c2cce30e51583d430b25dc1f91935e70217f33ba41e3283ab6e9b7e52&#34; /&gt; 但是，非常不便宜。当然也有省钱的办法：给自己的广告page点赞，follow page，给你感兴趣的广告点赞，你就会被FB列为对这列产品感兴趣的受众，下次有类似的产品广告出来，FB就会展现给你。
 
 小来也给了FB小白以下建议：
 1、FB的help center至少看三遍，最好能背得烂熟。

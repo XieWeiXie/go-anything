@@ -10,10 +10,7 @@
 ## 正文
 
 <div>
-发现个极好的dropshipping Spy工具，查找流行产品，店铺产品订单量，利润，aliexpress店铺信息，facebook广告互动，文案copy，人群定位扒的一干二净，内裤都不剩[悠闲]
 
-可以推广affiliate链接，50%的commission所有做dropshipping都是你的目标用户，14天试用
-?aff=jackiewong
 </div>
 
 ## 配图

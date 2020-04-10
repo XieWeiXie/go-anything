@@ -10,13 +10,13 @@
 ## 正文
 
 <div>
-又经过 3 个月了，回来继续补坑。
+&lt;e type=&#34;hashtag&#34; hid=&#34;518444444144&#34; title=&#34;#浏览器插件#&#34; /&gt;又经过 3 个月了，回来继续补坑。
 
 Chrome 插件过山车之旅
- 
+&lt;e type=&#34;web&#34; href=&#34;https://shimo.im/docs/iy9yoDM10IIQe1k4/&#34; title=&#34;Chrome 插件过山车之旅&#34; cache=&#34;http://cache.zsxq.com/201807/6d0ad8006a1fa10d02be20028819ad114f6cbd22fe847fb7ae592ad663b93bae&#34; /&gt; 
 
 上篇主题经亦仁的提醒，把插件付费改成了广告形式，上次没说是什么插件，这次就公布一下。
-网站域名：
+网站域名：&lt;e type=&#34;web&#34; href=&#34;https://click-music.com&#34; title=&#34;Click-Music | Music charts, Hot songs, MP3 convert&#34; cache=&#34;http://cache.zsxq.com/201807/81c6a6c9606b97e008bd75ab10dfb2d222fb23b854dacc8373fb00e5fc78acf5&#34; /&gt;
 插件（2 个）：Youtube to MP3、Soundcloud Downloader Pro
 后端技术：nodejs
 

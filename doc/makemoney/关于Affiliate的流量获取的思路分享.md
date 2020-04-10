@@ -10,10 +10,10 @@
 ## 正文
 
 <div>
-   
+&lt;e type=&#34;hashtag&#34; hid=&#34;454188842428&#34; title=&#34;#跨境电商#&#34; /&gt; &lt;e type=&#34;hashtag&#34; hid=&#34;225125525141&#34; title=&#34;#Affiliate引流思路#&#34; /&gt; &lt;e type=&#34;hashtag&#34; hid=&#34;454154458448&#34; title=&#34;#营销漏斗#&#34; /&gt; 
 第一次在亦仁群里分享，受涛哥（杨涛）流量那篇干货启发，本人不才写了一篇关于Affiliate的流量获取与独立站营销漏斗相结合进行变现的画像群分析。
 欢迎各路大神拍砖指点[呲牙]
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/_yVMwNwEr5uRNQY3meibzQ&#34; title=&#34;你想要找的独立站推广的资源都在这里（Affiliate变现篇）&#34; cache=&#34;&#34; /&gt;
 </div>
 
 ## 配图

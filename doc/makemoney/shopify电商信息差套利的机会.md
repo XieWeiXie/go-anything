@@ -10,7 +10,7 @@
 ## 正文
 
 <div>
- 
+&lt;e type=&#34;hashtag&#34; hid=&#34;2455128841&#34; title=&#34;#一起赚美元#&#34; /&gt; 
 
 本周的“一起赚美元”来啦，晚了一天，抱歉~
 
@@ -30,7 +30,7 @@
 
 关于如何通过建立一个与shopify相关的权威内容网站，通过搜索引擎和社交网站获取流量，并将shopify联盟链接插入到内容中，以实现通过流量获利，这里有一篇不错的教程推荐给大家。
 
-
+&lt;e type=&#34;web&#34; href=&#34;https://nichefacts.com/shopify-affiliate-program/&#34; title=&#34;The Shopify Affiliate Program [Promotion Strategie...&#34; /&gt;
 
 附图见推荐佣金政策。
 </div>

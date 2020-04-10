@@ -12,7 +12,7 @@
 <div>
 做社群要向B站好好学习，文章很多启发点，不管是社群还是社区，最后都是一群人，在那里玩的开心。
 
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/Ej8ZMIieGYhHnp3a3ZRIrg&#34; title=&#34;你复制不了B站的社区氛围，你真的复制不了；所以B站没有天敌&#34; cache=&#34;&#34; /&gt;
 </div>
 
 ## 配图

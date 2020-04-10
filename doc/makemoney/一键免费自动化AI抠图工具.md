@@ -10,13 +10,13 @@
 ## 正文
 
 <div>
- 
+&lt;e type=&#34;hashtag&#34; hid=&#34;8212448112&#34; title=&#34;#案例分享#&#34; /&gt; 
 
 remove.bg
 
 去除背景效果棒，可用场景也很多，可惜的是API接口太贵，不然拿过来做小程序挺适合。
 
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/sXAntMlz3eg5RmYVSy0i4A&#34; title=&#34;一键免费自动AI抠图，效果连PS大哥也点赞！&#34; cache=&#34;&#34; /&gt;
 </div>
 
 ## 配图

@@ -14,11 +14,11 @@
 
 我两年半前发过一篇简单科普文，介绍了微信公众平台图文消息的链接组成
 
-
+&lt;e type=&#34;web&#34; title=&#34;解读微信公众平台图文消息的链接组成&#34; href=&#34;https://mp.weixin.qq.com/s/laVLXBVG_qNWuCdoDk8AUg&#34; /&gt;
 
 在这篇文章里，我没说的是：__biz这个参数，其实就是base64编码，经过base64解码之后能得到公众平台的原始ID，
 那么这篇文章里还说了当时获取二维码的办法：
-
+&lt;e type=&#34;web&#34; title=&#34;http://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;s...&#34; href=&#34;https://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;size=102&amp;__biz=MzA5Njg3MjAzOA==&#34; /&gt;
 
 改变size即可改变二维码的大小。
 
@@ -42,7 +42,7 @@
 现在如果再去扫码会出现下面图片里的提示。
 
 
-而且 
+而且&lt;e type=&#34;web&#34; title=&#34;http://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;s...&#34; href=&#34;https://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;size=102&amp;__biz=MzA5Njg3MjAzOA==&#34; /&gt; 
 这种办法获取微信公众号二维码也获取不到了，返回：
 {
 ret: -2,
@@ -50,7 +50,7 @@ errmsg: &#34;get qrcode failed&#34;,
 cookie_count: 1
 }
 需要加上公众平台文章参数才可以获取：
-
+&lt;e type=&#34;web&#34; title=&#34;https://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;...&#34; href=&#34;https://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;size=102&amp;__biz=MzA5Njg3MjAzOA==&amp;mid=201308885&amp;idx=1&amp;sn=b4509bb0be258a0280a19fdd0b692ed6&amp;send_time=&#34; /&gt;
 
 
 另外如果你用张文瑞去Google搜索，会搜到几篇不错的微信相关架构的分享文章，建议阅读。

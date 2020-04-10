@@ -15,7 +15,7 @@
 设计针对性的付费方案带来的收入是广告收入的几十倍，卖流量始终是为别人做嫁衣。
 
 毕竟别人都是带着需求来的，满足需求就可以收费。
-
+&lt;e type=&#34;web&#34; href=&#34;https://mp.weixin.qq.com/s/PtDYI2WgrCq1icF0ejxkNQ&#34; title=&#34;QuestMobile泛娱乐付费用户洞察报告：千亿市场已形成，超级会员模式崛起席卷八荒&#34; cache=&#34;http://cache.zsxq.com/201805/5e2f8513459d122be5b3ac686b000ae721abfc98c60051f2f351d3400e336f34&#34; /&gt;
 </div>
 
 ## 配图

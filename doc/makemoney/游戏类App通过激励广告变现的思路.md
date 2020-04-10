@@ -10,12 +10,12 @@
 ## 正文
 
 <div>
-1.
-2.
-3.
+1.&lt;e type=&#34;web&#34; href=&#34;https://www.qimai.cn/app/rank/appid/930574573/country/cn&#34; title=&#34;狙击3D刺客：射击手游 《Sniper 3D 网游》|App榜单实时排名趋势|下载量排行榜|App ...&#34; cache=&#34;http://cache.zsxq.com/201804/98c5bd61316edbbe87c7e8e8ce40d31e3f6bcca29dc10d8782cb260299e9d2e6&#34; /&gt;
+2.&lt;e type=&#34;web&#34; href=&#34;https://www.qimai.cn/app/rank/appid/1040092507/country/cn&#34; title=&#34;星际英雄复仇者：异军突袭（最新反恐联盟精英枪战手游）|App榜单实时排名趋势|下载量排行榜|App ...&#34; cache=&#34;http://cache.zsxq.com/201804/64644c489a604fd2f87c8b67b8aea74955b58da75d270baf157bfbcd10bd89ba&#34; /&gt;
+3.&lt;e type=&#34;web&#34; href=&#34;https://www.qimai.cn/app/rank/appid/567198973/country/cn&#34; title=&#34;火线指令：诺曼底|App榜单实时排名趋势|下载量排行榜|App Store应用数据统计监控 - 七麦...&#34; cache=&#34;http://cache.zsxq.com/201804/b0c26939a4fa86ec19e551ac2b13db1f2a7df8f76d06e0a25a8b64d452d0c42c&#34; /&gt;
 第一个曾经通过激励视频下载，体验一番，发现生命值没了后看激励视频即可再次游戏，这个游戏很长一段时间一直在admob投广告，估计流水很不错，其他两个也是类似的游戏；
 
-4.
+4.&lt;e type=&#34;web&#34; href=&#34;https://www.qimai.cn/app/samePubApp/appid/1070486544/country/cn&#34; title=&#34;射击游戏 - 经典射击游戏单机射击游戏|App应用软件同开发者账号应用|App Store应用数据统...&#34; cache=&#34;http://cache.zsxq.com/201804/4465dd1bb81949d9ed36bfa4f028af1a251342739da7d40dda8ae62604f6e7a4&#34; /&gt;
 这个是通过搜索找到的一个独立开发者，这里面牵涉到另一条线路，通过买游戏源码，嵌入广告获取收益，或者批量换肤上线，没记错的话，圈子里还是caoz的圈子有人做过这个；我发的例子这个人比较良心，广告嵌入的较少；
 
 以上是我搜索出来的一些，其实游戏类这方面很多人做的，最简单的就是AppStore搜索枪战，找那些独立开发者的游戏大部分是激励视频续命，同时也看该开发者下的其他游戏会有不错的发现；
