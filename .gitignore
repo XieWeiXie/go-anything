@@ -2,3 +2,4 @@ vendor/*
 go-anything*
 k8s-docker-desktop-for-mac/*
 default.etcd/*
+yaml/*
