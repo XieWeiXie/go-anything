@@ -36,6 +36,9 @@ func (G GoogleDoodlesAction) Do() []model.GoogleDoodles {
 		one.UrlHigh = fmt.Sprintf("https:" + i.Get("high_res_url").String())
 		one.Url = fmt.Sprintf("https:" + i.Get("url").String())
 		one.AlternateUrl = i.Get("alternate_url").String()
+		if one.AlternateUrl == "" {
+			one.AlternateUrl = one.UrlHigh
+		}
 		log.Println(one)
 		results = append(results, one)
 	}
