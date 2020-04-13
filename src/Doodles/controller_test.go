@@ -54,6 +54,9 @@ func toSave(title string, content []byte) error {
 func toYear(year int, url string) {
 	d := NewGoogleDoodlesAction(url)
 	results := d.Do()
+	if len(results) == 0 {
+		return
+	}
 	var returnResult model.MonthGoogleDoodles
 	_, returnResult.Month = urlSplit(url)
 	returnResult.Doodles = results
