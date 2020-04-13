@@ -10,6 +10,7 @@ import (
 	"os"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestDoodles(t *testing.T) {
@@ -21,6 +22,7 @@ func TestDoodles(t *testing.T) {
 	ts := template.New("doodles")
 	box := packr.NewBox("../../doc/doodles/template")
 	templateText, _ := box.FindString("doodles.md")
+	ts = ts.Funcs(template.FuncMap{"toDateFunc": toDateFormat})
 	tem, _ := ts.Parse(templateText)
 	var byt bytes.Buffer
 	e := tem.Execute(&byt, returnResult)
@@ -43,4 +45,9 @@ func toSave(title string, content []byte) error {
 	f.Write(content)
 	defer f.Close()
 	return nil
+}
+
+func toDateFormat(date time.Time) string {
+	y, m, d := date.Date()
+	return fmt.Sprintf("%d年%d月%d日", y, m, d)
 }

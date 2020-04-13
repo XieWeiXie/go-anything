@@ -7,8 +7,8 @@
 
 <div class="image" align="center">
 {{range .Doodles}}
-<img src="{{.AlternateUrl}}" width="33%" height="33%" alt="{{.ShareText}}"/>
-<div class="info"><div class="title">{{.Title}}</div><div class="date">{{.Date}}</div></div>
+<img src="{{.AlternateUrl}}" width="33%" alt="{{.ShareText}}"/>
+<div class="info"><div class="title">{{.Title}}</div><div class="date">{{.Date | toDateFunc }}</div></div>
 {{end}}
 </div>
 
