@@ -15,6 +15,11 @@ type GoogleDoodles struct {
 	AlternateUrl string    `json:"alternate_url"`
 }
 
+type MonthGoogleDoodles struct {
+	Month   string          `json:"month"`
+	Doodles []GoogleDoodles `json:"doodles"`
+}
+
 func (g GoogleDoodles) First(id int) (GoogleDoodles, error) {
 	return GoogleDoodles{}, nil
 }

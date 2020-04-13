@@ -21,7 +21,7 @@ func NewGoogleDoodlesAction(url string) *GoogleDoodlesAction {
 }
 func (G GoogleDoodlesAction) Do() []model.GoogleDoodles {
 	content := chromedp_helper.GetPageSourceHTTP(G.Url)
-	log.Println(content)
+	//log.Println(content)
 	var results []model.GoogleDoodles
 
 	js := gjson.Parse(content)
