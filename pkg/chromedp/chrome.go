@@ -26,7 +26,7 @@ func GetPageSource(ctx context.Context, url string) string {
 	var response string
 	err := chromedp.Run(ctx, chromedp.Tasks{
 		chromedp.Navigate(url),
-		chromedp.OuterHTML("body", &response),
+		chromedp.OuterHTML(`body`, &response, chromedp.NodeVisible, chromedp.ByQuery),
 	})
 	if err != nil {
 		log.Println(fmt.Sprintf("GetPageSource: %s", err.Error()))
