@@ -65,7 +65,7 @@ func (F ControllerFaceBookAds) Do() []model.FaceBookAds {
 			ad.AdImageUrl, _ = links.Find("img").Attr("src")
 		}
 
-		log.Println(fmt.Sprintf("%#v", ad))
+		log.Println(ad)
 		result = append(result, ad)
 	})
 	return nil
